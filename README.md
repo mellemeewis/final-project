@@ -16,6 +16,7 @@ Deze app zal proberen gebruikers te helpen hun vleesconsumptie naar wens te verm
   
 
 ### Visualization
+![alt text](https://github.com/mellemeewis/final-project/blob/master/doc/Visualization.jpg)
 
 ## Prerequisites
 
