@@ -19,4 +19,11 @@ Deze app zal proberen gebruikers te helpen hun vleesconsumptie naar wens te verm
 ![alt text](https://github.com/mellemeewis/final-project/blob/master/doc/Visualization.jpg)
 
 ## Prerequisites
+### Data Sources
+De data die in deze app gebruikt zal worden zal gevonden worden in de wetenschappelijke literaturr betreffende de invloed van vleesconsumptie op het milieu en dierenwelzijn.
+
+### External Components
+Firebase zal gebruikt worden om het gebruik van accounts en de sociale omgeving in de app mogelijk te maken. 
+Website: https://firebase.google.com
+
 
