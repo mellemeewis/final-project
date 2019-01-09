@@ -1,5 +1,5 @@
 //
-//  SignInViewController.swift
+//  HomeScreenViewController.swift
 //  QuitMeat
 //
 //  Created by Melle Meewis on 09/01/2019.
@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
-class SignInViewController: UIViewController {
+class HomeScreenViewController: UIViewController {
 
+    @IBAction func LogOutButtonTapped(_ sender: UIButton) {
+        try! Auth.auth().signOut()
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

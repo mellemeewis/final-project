@@ -23,6 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="442" y="27"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="yEW-tO-Jz6">
@@ -60,7 +61,7 @@
                                     <constraint firstAttribute="height" constant="40" id="ZDb-Uk-eyr"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Sign In">
+                                <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.089560873806476593" green="0.36830523610115051" blue="0.076661489903926849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -86,15 +87,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BbH-Ir-rsj"/>
                     </view>
+                    <connections>
+                        <segue destination="NfO-QL-EmU" kind="show" identifier="GoToHomeScreen" id="93h-04-ZhT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cac-Fm-MAG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1321" y="27"/>
         </scene>
-        <!--Sign In View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="8N8-Ez-UdG">
             <objects>
-                <viewController id="kCt-jD-uxe" customClass="SignInViewController" customModule="QuitMeat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kCt-jD-uxe" customClass="SignUpViewController" customModule="QuitMeat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v8Y-41-CWa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,9 +143,12 @@
                                     <constraint firstAttribute="height" constant="40" id="HMa-b2-mUe"/>
                                     <constraint firstAttribute="width" constant="250" id="J2T-9g-K5n"/>
                                 </constraints>
-                                <state key="normal" title="Log In">
+                                <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="SignUpButtonTapped:" destination="kCt-jD-uxe" eventType="touchUpInside" id="onA-su-cQk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9h-kb-aim" userLabel="Back">
                                 <rect key="frame" x="16" y="20" width="40" height="40"/>
@@ -151,7 +158,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="back"/>
                                 <connections>
-                                    <segue destination="dK3-FT-59C" kind="show" animates="NO" id="07Z-ZD-B63"/>
+                                    <action selector="backButtonTapped:" destination="kCt-jD-uxe" eventType="touchUpInside" id="VsD-UG-C26"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -174,10 +181,47 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="59G-za-zgD"/>
                     </view>
+                    <connections>
+                        <outlet property="EmailTextField" destination="A28-3v-Smx" id="5dK-Fg-vmo"/>
+                        <outlet property="PasswordTextField" destination="dyf-2g-DWp" id="2xg-fq-RRG"/>
+                        <outlet property="RepeatPasswordTextField" destination="O7P-3H-6Ax" id="HSa-FD-4Qz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icN-ds-VvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2130.4000000000001" y="398.95052473763121"/>
+        </scene>
+        <!--Home Screen View Controller-->
+        <scene sceneID="KdT-zI-QXx">
+            <objects>
+                <viewController id="NfO-QL-EmU" customClass="HomeScreenViewController" customModule="QuitMeat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9su-a2-3cW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaS-g4-4lz">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="697-oi-8tr">
+                                <rect key="frame" x="162" y="137" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="LogOutButtonTapped:" destination="NfO-QL-EmU" eventType="touchUpInside" id="KCi-f4-HIg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="JOy-Ji-Pjh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u6a-jD-76d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2969" y="45"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="6aG-Qj-Mif">
@@ -220,6 +264,9 @@
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="LogInButtonTapped:" destination="aS4-NZ-x1c" eventType="touchUpInside" id="k7F-f9-Hqw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1t8-51-if5" userLabel="Back">
                                 <rect key="frame" x="16" y="20" width="40" height="40"/>
@@ -229,7 +276,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="back"/>
                                 <connections>
-                                    <segue destination="dK3-FT-59C" kind="show" id="9Db-NJ-dTq"/>
+                                    <action selector="backButtonPressed:" destination="aS4-NZ-x1c" eventType="touchUpInside" id="epZ-aW-FGu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -250,6 +297,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o9a-CV-UkZ"/>
                     </view>
+                    <connections>
+                        <outlet property="EmailTextField" destination="9sx-2Q-eFr" id="kHQ-n8-eh9"/>
+                        <outlet property="PasswordTextField" destination="I0A-uK-6pp" id="CB9-6c-M5q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3M-Fu-4xM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -262,7 +313,4 @@
         <image name="back" width="1200" height="1200"/>
         <image name="line" width="100" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="9Db-NJ-dTq"/>
-    </inferredMetricsTieBreakers>
 </document>
