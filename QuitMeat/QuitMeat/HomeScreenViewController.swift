@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class HomeScreenViewController: UIViewController {
 
@@ -18,6 +19,16 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        
+        ref.child("Users/ID/Stopped").observeSingleEvent(of: .value) {
+            (snapshot) in
+            let stopInfo = snapshot.value as? [String:Any]
+            print(stopInfo)
+        }
 
         // Do any additional setup after loading the view.
     }

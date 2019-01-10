@@ -11,10 +11,13 @@ import Firebase
 
 class SignUpViewController: UIViewController {
     
+    var ref: DatabaseReference!
+    
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
     }
     
+    @IBOutlet weak var NameTextField: UITextField!
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
     @IBOutlet weak var RepeatPasswordTextField: UITextField!
@@ -26,8 +29,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        ref = Database.database().reference()
     }
     
 
@@ -42,6 +44,7 @@ class SignUpViewController: UIViewController {
     */
     
     func handleSignUp() {
+        guard let name = NameTextField.text else { return }
         guard let email = EmailTextField.text else { return }
         guard let password = PasswordTextField.text else { return }
         guard let repeatedPassword = RepeatPasswordTextField.text else { return }
@@ -49,7 +52,10 @@ class SignUpViewController: UIViewController {
         
         Auth.auth().createUser(withEmail: email, password: password) { user, error in
             if error == nil && user != nil {
-                self.dismiss(animated: false, completion: nil)
+                if let userID = Auth.auth().currentUser?.uid {
+                    self.ref.child("users/\(userID)/name").setValue(name)
+                    self.dismiss(animated: false, completion: nil)
+                }
             } else {
                 print("Error creating user: \(error!.localizedDescription)")
             }

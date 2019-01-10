@@ -10,11 +10,13 @@ import UIKit
 import Firebase
 
 class MenuViewController: UIViewController {
+    
+    var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        ref = Database.database().reference()
+        fetchProductTypes()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -22,17 +24,22 @@ class MenuViewController: UIViewController {
         
         if let user = Auth.auth().currentUser {
             self.performSegue(withIdentifier: "GoToHomeScreen", sender: self)
+            print("USER: \(user.uid)")
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func fetchProductTypes() {
+        ref.child("productTypes").observeSingleEvent(of: .value) {
+            (snapshot) in
+            guard let data = snapshot.value as? [String:Any] else { return }
+            for (key, value) in (data) {
+                let productTypeData = value as! Dictionary<String, Any>
+                let productType = ProductType(co2: productTypeData["co2"] as! Int, water: productTypeData["water"] as! Int, animals: productTypeData["animals"] as! Int)
+                SessionController.shared.productTypes[key] = productType
+                print(key)
+                print(productType)
+                print(SessionController.shared.productTypes)
+            }
+        }
     }
-    */
-
 }

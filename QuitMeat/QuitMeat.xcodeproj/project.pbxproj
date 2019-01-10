@@ -17,6 +17,10 @@
 		039DBCCA21E62A1500D5B22B /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DBCC921E62A1500D5B22B /* LogInViewController.swift */; };
 		039DBCCC21E6371900D5B22B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DBCCB21E6371900D5B22B /* SignUpViewController.swift */; };
 		039DBCCE21E6458000D5B22B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 039DBCCD21E6457F00D5B22B /* GoogleService-Info.plist */; };
+		03A5BA5321E782A900DA26FB /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A5BA5221E782A900DA26FB /* SessionController.swift */; };
+		03A5BA5521E78B8600DA26FB /* DetailStoppingInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A5BA5421E78B8600DA26FB /* DetailStoppingInformationViewController.swift */; };
+		03A5BA5721E78C5800DA26FB /* NewStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A5BA5621E78C5800DA26FB /* NewStopViewController.swift */; };
+		03A5BA5921E790D400DA26FB /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A5BA5821E790D400DA26FB /* ProductType.swift */; };
 		575543324A61FB4420D8E5A1 /* Pods_QuitMeat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72531E7F512C593AD2EB51CD /* Pods_QuitMeat.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +37,10 @@
 		039DBCC921E62A1500D5B22B /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		039DBCCB21E6371900D5B22B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		039DBCCD21E6457F00D5B22B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		03A5BA5221E782A900DA26FB /* SessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
+		03A5BA5421E78B8600DA26FB /* DetailStoppingInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStoppingInformationViewController.swift; sourceTree = "<group>"; };
+		03A5BA5621E78C5800DA26FB /* NewStopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStopViewController.swift; sourceTree = "<group>"; };
+		03A5BA5821E790D400DA26FB /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductType.swift; sourceTree = "<group>"; };
 		30B393818626FA82FF2840AD /* Pods-QuitMeat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitMeat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuitMeat/Pods-QuitMeat.debug.xcconfig"; sourceTree = "<group>"; };
 		72531E7F512C593AD2EB51CD /* Pods_QuitMeat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuitMeat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		828562520F6BAC1F2CBEAFF4 /* Pods-QuitMeat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitMeat.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuitMeat/Pods-QuitMeat.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,10 +82,14 @@
 				039DBCB521E615C000D5B22B /* AppDelegate.swift */,
 				039DBCB721E615C000D5B22B /* InitialViewController.swift */,
 				039DBCC721E6187D00D5B22B /* MenuViewController.swift */,
+				03A5BA5221E782A900DA26FB /* SessionController.swift */,
+				03A5BA5821E790D400DA26FB /* ProductType.swift */,
 				039DBCC921E62A1500D5B22B /* LogInViewController.swift */,
 				039DBCCB21E6371900D5B22B /* SignUpViewController.swift */,
 				030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */,
 				039DBCB921E615C000D5B22B /* Main.storyboard */,
+				03A5BA5421E78B8600DA26FB /* DetailStoppingInformationViewController.swift */,
+				03A5BA5621E78C5800DA26FB /* NewStopViewController.swift */,
 				039DBCBC21E615C300D5B22B /* Assets.xcassets */,
 				039DBCBE21E615C300D5B22B /* LaunchScreen.storyboard */,
 				039DBCC121E615C300D5B22B /* Info.plist */,
@@ -185,6 +197,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-QuitMeat/Pods-QuitMeat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -193,6 +206,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,10 +265,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03A5BA5321E782A900DA26FB /* SessionController.swift in Sources */,
 				039DBCCA21E62A1500D5B22B /* LogInViewController.swift in Sources */,
 				039DBCB821E615C000D5B22B /* InitialViewController.swift in Sources */,
 				039DBCC821E6187D00D5B22B /* MenuViewController.swift in Sources */,
+				03A5BA5521E78B8600DA26FB /* DetailStoppingInformationViewController.swift in Sources */,
+				03A5BA5921E790D400DA26FB /* ProductType.swift in Sources */,
 				039DBCCC21E6371900D5B22B /* SignUpViewController.swift in Sources */,
+				03A5BA5721E78C5800DA26FB /* NewStopViewController.swift in Sources */,
 				039DBCB621E615C000D5B22B /* AppDelegate.swift in Sources */,
 				030B424F21E6519E00FF4921 /* HomeScreenViewController.swift in Sources */,
 			);
