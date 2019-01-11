@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		030B424F21E6519E00FF4921 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */; };
+		0376657C21E8E17900F6E2C0 /* stoppedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376657B21E8E17900F6E2C0 /* stoppedItem.swift */; };
 		039DBCB621E615C000D5B22B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DBCB521E615C000D5B22B /* AppDelegate.swift */; };
 		039DBCB821E615C000D5B22B /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DBCB721E615C000D5B22B /* InitialViewController.swift */; };
 		039DBCBB21E615C000D5B22B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039DBCB921E615C000D5B22B /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		0376657B21E8E17900F6E2C0 /* stoppedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stoppedItem.swift; sourceTree = "<group>"; };
 		039DBCB221E615C000D5B22B /* QuitMeat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitMeat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		039DBCB521E615C000D5B22B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		039DBCB721E615C000D5B22B /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				039DBCC721E6187D00D5B22B /* MenuViewController.swift */,
 				03A5BA5221E782A900DA26FB /* SessionController.swift */,
 				03A5BA5821E790D400DA26FB /* ProductType.swift */,
+				0376657B21E8E17900F6E2C0 /* stoppedItem.swift */,
 				039DBCC921E62A1500D5B22B /* LogInViewController.swift */,
 				039DBCCB21E6371900D5B22B /* SignUpViewController.swift */,
 				030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */,
@@ -269,6 +272,7 @@
 				039DBCCA21E62A1500D5B22B /* LogInViewController.swift in Sources */,
 				039DBCB821E615C000D5B22B /* InitialViewController.swift in Sources */,
 				039DBCC821E6187D00D5B22B /* MenuViewController.swift in Sources */,
+				0376657C21E8E17900F6E2C0 /* stoppedItem.swift in Sources */,
 				03A5BA5521E78B8600DA26FB /* DetailStoppingInformationViewController.swift in Sources */,
 				03A5BA5921E790D400DA26FB /* ProductType.swift in Sources */,
 				039DBCCC21E6371900D5B22B /* SignUpViewController.swift in Sources */,

@@ -15,21 +15,13 @@ class HomeScreenViewController: UIViewController {
     @IBAction func LogOutButtonTapped(_ sender: UIButton) {
         try! Auth.auth().signOut()
         self.dismiss(animated: false, completion: nil)
+        
+        SessionController.shared.clearSessionData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var ref: DatabaseReference!
-        
-        ref = Database.database().reference()
-        
-        ref.child("Users/ID/Stopped").observeSingleEvent(of: .value) {
-            (snapshot) in
-            let stopInfo = snapshot.value as? [String:Any]
-            print(stopInfo)
-        }
-
         // Do any additional setup after loading the view.
     }
     

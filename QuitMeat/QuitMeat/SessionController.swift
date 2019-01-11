@@ -10,9 +10,17 @@ import Foundation
 import Firebase
 
 class SessionController {
+        
+    static let shared = SessionController()
     
     var productTypes = [String:ProductType]()
+    var stoppedItemsUser = [String:StoppedItem]()
     
-    let userID = Auth.auth().currentUser?.uid
-    static let shared = SessionController()
+    var userID: String!
+    var name: String!
+    
+    func clearSessionData() {
+        productTypes = [String:ProductType]()
+        stoppedItemsUser = [String:StoppedItem]()
+    }
 }

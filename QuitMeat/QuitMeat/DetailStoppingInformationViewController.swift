@@ -9,11 +9,28 @@
 import UIKit
 
 class DetailStoppingInformationViewController: UIViewController {
-
+    @IBOutlet weak var stoppingLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
+    
+    func updateUI() {
+        var string = "You stopped eating: \n"
+        for (key, value) in SessionController.shared.stoppedItemsUser {
+            string = string + key + " since " + value.stopDate + " for " + String(value.days) + " a week.\n"
+            print(key)
+            print(value)
+        }
+        stoppingLabel.text = string
     }
     
 

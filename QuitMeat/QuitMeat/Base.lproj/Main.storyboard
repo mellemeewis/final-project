@@ -215,11 +215,21 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackGround" translatesAutoresizingMaskIntoConstraints="NO" id="u3F-oj-YPv">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcJ-Bp-say">
+                                <rect key="frame" x="304" y="20" width="55" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="InZ-1M-iIi"/>
+                                </constraints>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="LogOutButtonTapped:" destination="NfO-QL-EmU" eventType="touchUpInside" id="EMn-pn-mDc"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Il1-AX-ViH">
-                                <rect key="frame" x="16" y="28" width="343" height="623"/>
+                                <rect key="frame" x="16" y="66" width="343" height="585"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ce-n4-S6Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="140"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="130.5"/>
                                         <color key="backgroundColor" red="0.092936801050000004" green="0.3728695984" blue="0.1826850978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Stopping Info"/>
                                         <connections>
@@ -227,22 +237,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blg-rF-nKa">
-                                        <rect key="frame" x="0.0" y="161" width="343" height="140"/>
+                                        <rect key="frame" x="0.0" y="151.5" width="343" height="130.5"/>
                                         <color key="backgroundColor" red="0.69902046319796951" green="0.13988606816787166" blue="0.16113498531133577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="B"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiM-i4-st0">
-                                        <rect key="frame" x="0.0" y="322" width="343" height="140"/>
+                                        <rect key="frame" x="0.0" y="303" width="343" height="130.5"/>
                                         <color key="backgroundColor" red="0.31895166520000001" green="0.46020243900000002" blue="0.93450453369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="C"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uv0-Bz-y5J">
-                                        <rect key="frame" x="0.0" y="483" width="343" height="140"/>
+                                        <rect key="frame" x="0.0" y="454.5" width="343" height="130.5"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="LogOutButtonTapped:" destination="NfO-QL-EmU" eventType="touchUpInside" id="W4N-ro-7aG"/>
-                                        </connections>
+                                        <state key="normal" title="D"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -264,8 +271,10 @@
                             <constraint firstItem="Il1-AX-ViH" firstAttribute="leading" secondItem="9su-a2-3cW" secondAttribute="leadingMargin" id="Bc8-Bz-wle"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Il1-AX-ViH" secondAttribute="bottom" constant="16" id="FGQ-eU-NnN"/>
                             <constraint firstItem="u3F-oj-YPv" firstAttribute="leading" secondItem="9su-a2-3cW" secondAttribute="leading" id="Iaw-kV-AkJ"/>
+                            <constraint firstItem="Il1-AX-ViH" firstAttribute="top" secondItem="lcJ-Bp-say" secondAttribute="bottom" constant="16" id="Mg3-cj-YDp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Il1-AX-ViH" secondAttribute="trailing" id="QW4-E5-iw6"/>
-                            <constraint firstItem="Il1-AX-ViH" firstAttribute="top" secondItem="9su-a2-3cW" secondAttribute="topMargin" constant="8" id="gAn-3L-YbR"/>
+                            <constraint firstItem="lcJ-Bp-say" firstAttribute="trailing" secondItem="9su-a2-3cW" secondAttribute="trailingMargin" id="Rlm-ar-JZH"/>
+                            <constraint firstItem="lcJ-Bp-say" firstAttribute="top" secondItem="9su-a2-3cW" secondAttribute="topMargin" id="XGw-QF-zPQ"/>
                             <constraint firstAttribute="trailing" secondItem="u3F-oj-YPv" secondAttribute="trailing" id="lvC-pz-bGo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JOy-Ji-Pjh"/>
@@ -286,9 +295,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackGround" translatesAutoresizingMaskIntoConstraints="NO" id="nXE-41-oCL">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detailed info about user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ji-Up-ywV">
-                                <rect key="frame" x="96" y="261" width="183" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detailed info about user" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ji-Up-ywV">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -307,15 +315,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="3Ji-Up-ywV" firstAttribute="top" secondItem="xSr-f8-RKh" secondAttribute="topMargin" id="CzB-WD-5P8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3Ji-Up-ywV" secondAttribute="trailing" id="Ejc-W5-a0Q"/>
                             <constraint firstItem="nXE-41-oCL" firstAttribute="top" secondItem="xSr-f8-RKh" secondAttribute="top" id="PNb-HG-yow"/>
                             <constraint firstItem="nXE-41-oCL" firstAttribute="trailing" secondItem="jMz-Aq-mM8" secondAttribute="trailing" id="QFl-el-gpD"/>
                             <constraint firstItem="vZq-mr-BYY" firstAttribute="trailing" secondItem="xSr-f8-RKh" secondAttribute="trailingMargin" id="T1w-RW-0Wn"/>
                             <constraint firstItem="nXE-41-oCL" firstAttribute="leading" secondItem="jMz-Aq-mM8" secondAttribute="leading" id="U7o-Zv-vsw"/>
                             <constraint firstItem="nXE-41-oCL" firstAttribute="bottom" secondItem="xSr-f8-RKh" secondAttribute="bottom" id="Wvz-bg-loJ"/>
+                            <constraint firstItem="3Ji-Up-ywV" firstAttribute="leading" secondItem="xSr-f8-RKh" secondAttribute="leadingMargin" id="eIu-w3-14Q"/>
                             <constraint firstAttribute="bottomMargin" secondItem="vZq-mr-BYY" secondAttribute="bottom" constant="20" id="eYv-mL-0jd"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="3Ji-Up-ywV" secondAttribute="bottom" id="mBU-Y9-Q1C"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jMz-Aq-mM8"/>
                     </view>
+                    <connections>
+                        <outlet property="stoppingLabel" destination="3Ji-Up-ywV" id="CMM-Cj-cMg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwR-gb-xlS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -333,10 +348,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uqh-gx-pqs">
-                                <rect key="frame" x="0.0" y="172" width="375" height="263.5"/>
+                                <rect key="frame" x="0.0" y="143" width="375" height="321.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What would you like to consume less for how many days a week?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zad-ND-ZMY">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What would you like to stop consuming for how many days a week?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zad-ND-ZMY">
+                                        <rect key="frame" x="10" y="0.0" width="355" height="39.5"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -344,10 +359,23 @@
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzk-Le-6e0">
                                         <rect key="frame" x="27.5" y="47.5" width="320" height="216"/>
                                     </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8d-vu-7vt">
+                                        <rect key="frame" x="10" y="271.5" width="355" height="50"/>
+                                        <color key="backgroundColor" red="0.092936801050000004" green="0.3728695984" blue="0.1826850978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="9XJ-2L-CW2"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="createButtonTapped:" destination="B15-SC-o7P" eventType="touchUpInside" id="aUD-hl-gVo"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="zad-ND-ZMY" firstAttribute="leading" secondItem="uqh-gx-pqs" secondAttribute="leading" id="Hr9-BH-u5e"/>
-                                    <constraint firstAttribute="trailing" secondItem="zad-ND-ZMY" secondAttribute="trailing" id="jMn-Dx-0nM"/>
+                                    <constraint firstAttribute="trailing" secondItem="s8d-vu-7vt" secondAttribute="trailing" constant="10" id="Y1J-D0-fBK"/>
+                                    <constraint firstItem="s8d-vu-7vt" firstAttribute="leading" secondItem="uqh-gx-pqs" secondAttribute="leading" constant="10" id="ah7-Up-2er"/>
+                                    <constraint firstAttribute="trailing" secondItem="zad-ND-ZMY" secondAttribute="trailing" constant="10" id="t4A-pc-Lhz"/>
+                                    <constraint firstItem="zad-ND-ZMY" firstAttribute="leading" secondItem="uqh-gx-pqs" secondAttribute="leading" constant="10" id="wDs-r0-lCm"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -364,6 +392,7 @@
                         <viewLayoutGuide key="safeArea" id="mck-Ad-nGG"/>
                     </view>
                     <connections>
+                        <outlet property="createButton" destination="s8d-vu-7vt" id="5o2-mf-FMG"/>
                         <outlet property="productTypePickerWheel" destination="gzk-Le-6e0" id="RaQ-l1-3FU"/>
                     </connections>
                 </viewController>

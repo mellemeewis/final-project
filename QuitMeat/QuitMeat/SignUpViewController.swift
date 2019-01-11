@@ -44,7 +44,7 @@ class SignUpViewController: UIViewController {
     */
     
     func handleSignUp() {
-        guard let name = NameTextField.text else { return }
+        guard let name = NameTextField.text?.capitalized else { return }
         guard let email = EmailTextField.text else { return }
         guard let password = PasswordTextField.text else { return }
         guard let repeatedPassword = RepeatPasswordTextField.text else { return }
@@ -52,8 +52,16 @@ class SignUpViewController: UIViewController {
         
         Auth.auth().createUser(withEmail: email, password: password) { user, error in
             if error == nil && user != nil {
+                print(Auth.auth().currentUser?.uid)
                 if let userID = Auth.auth().currentUser?.uid {
                     self.ref.child("users/\(userID)/name").setValue(name)
+                    let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                    changeRequest?.displayName = name
+                    changeRequest?.commitChanges { error in
+                        if error == nil {
+                            SessionController.shared.name = name.capitalized
+                        }
+                    }
                     self.dismiss(animated: false, completion: nil)
                 }
             } else {
