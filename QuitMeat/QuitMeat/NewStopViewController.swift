@@ -16,6 +16,10 @@ class NewStopViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     var daysAWeek: Int!
     
     @IBOutlet weak var createButton: UIButton!
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
+    }
     @IBOutlet weak var productTypePickerWheel: UIPickerView!
     
     var productTypeNames = [String]()
@@ -48,30 +52,25 @@ class NewStopViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     @IBAction func createButtonTapped(_ sender: UIButton) {
-        print("HI")
         guard let userID = SessionController.shared.userID else { return }
-        print("1")
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
         let date = Date()
         let dateAsString = dateFormatter.string(from: date)
-        print(dateAsString)
-        
+        dateFormatter.timeStyle = .medium
+        let eventDate = dateFormatter.string(from: date).replacingOccurrences(of: "/", with: "-")
         guard let name = SessionController.shared.name else { return }
-        print("2")
         guard let selectedProductType = self.selectedProductType else { return }
-        print("3")
-        let descriptionKey = ref.child("events").childByAutoId().key!
+        //let descriptionKey = ref.child("events").childByAutoId().key!
         let eventDescription = "\(name) stopped eating \(selectedProductType) on \(dateAsString) for \(daysAWeek!) days a week!"
-        let childupdates = ["/users/\(userID)/stopped/\(selectedProductType)": ["days": daysAWeek, "date": dateAsString], "/events/\(descriptionKey)": eventDescription] as [String : Any]
-        ref.updateChildValues(childupdates)
-//        { (error: Error?, ref: DatabaseReference) in
-//            if error == nil {
-//                MenuViewController.shared.updateSessionData()
-//            }
-//        }
-        self.dismiss(animated: false)
+        let childupdates = ["/users/\(userID)/stopped/\(selectedProductType)": ["days": daysAWeek, "date": dateAsString], "/events/\(eventDate)": eventDescription] as [String : Any]
+        ref.updateChildValues(childupdates) { (error: Error?, ref: DatabaseReference) in
+            if error == nil {
+                self.dismiss(animated: false)
+            }
+        }
+
     }
     
     
@@ -95,6 +94,7 @@ class NewStopViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func updateUI() {
         selectedProductType = productTypeNames[productTypePickerWheel.selectedRow(inComponent: 0)]
         daysAWeek = Int(daysInWeek[productTypePickerWheel.selectedRow(inComponent: 1)])
-        createButton.setTitle("Stop eating \(selectedProductType) for \(daysAWeek) day(s) a week!", for: .normal)
+        
+        createButton.setTitle("Stop eating \(selectedProductType!) for \(daysAWeek!) day(s) a week!", for: .normal)
     }
 }

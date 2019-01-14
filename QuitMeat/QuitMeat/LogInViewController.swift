@@ -36,6 +36,7 @@ class LogInViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: email, password: password) { user, error in
             if error == nil && user != nil {
+                SessionController.shared.name = Auth.auth().currentUser?.displayName
                 self.dismiss(animated: false, completion: nil)
             } else {
                 print("Error logging in: \(error!.localizedDescription)")

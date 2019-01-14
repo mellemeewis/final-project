@@ -7,21 +7,39 @@
 //
 
 import UIKit
+import Firebase
 
 class DetailStoppingInformationViewController: UIViewController {
+    
+    static var shared = DetailStoppingInformationViewController()
+    var ref: DatabaseReference!
     @IBOutlet weak var stoppingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateUI()
+        updateData()
     }
+    
+    func updateData() {
+            ref = Database.database().reference()
+            let userID = SessionController.shared.userID!
+            let childPath = "users/\(userID)/stopped"
+            ref.child(childPath).observeSingleEvent(of: .value) {
+                (snapshot) in
+                guard let data = snapshot.value as? [String:Any] else { return }
+                for (key, value) in (data) {
+                    let stoppingData = value as! Dictionary<String, Any>
+                    let stoppedItem = StoppedItem(days: stoppingData["days"] as! Int, stopDate: stoppingData["date"] as! String)
+                    SessionController.shared.stoppedItemsUser[key] = stoppedItem
+                    print(SessionController.shared.stoppedItemsUser)
+                }
+            self.updateUI()
+            }
+        }
     
     func updateUI() {
         var string = "You stopped eating: \n"
@@ -30,18 +48,10 @@ class DetailStoppingInformationViewController: UIViewController {
             print(key)
             print(value)
         }
-        stoppingLabel.text = string
+        print(string)
+        self.stoppingLabel.text = string
     }
-    
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

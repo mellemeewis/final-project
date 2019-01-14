@@ -11,6 +11,10 @@ import Firebase
 
 class MenuViewController: UIViewController {
     
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
+        
+    }
+    
     static let shared = MenuViewController()
     
     var ref: DatabaseReference!
@@ -18,27 +22,25 @@ class MenuViewController: UIViewController {
     func updateSessionControllerValues() {
         print("valuesUpdated")
         SessionController.shared.name = Auth.auth().currentUser?.displayName
+        print(SessionController.shared.name)
         SessionController.shared.userID = Auth.auth().currentUser?.uid
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-        fetchProductTypes()
-        if Auth.auth().currentUser != nil {
-            updateSessionControllerValues()
-        }
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let user = Auth.auth().currentUser {
+        if Auth.auth().currentUser != nil {
             updateSessionControllerValues()
-            fetchStopsUser()
+            fetchProductTypes()
             self.performSegue(withIdentifier: "GoToHomeScreen", sender: self)
-            print("USER: \(user.uid)")
         }
     }
+
 
     func fetchProductTypes() {
         ref.child("productTypes").observeSingleEvent(of: .value) {
@@ -48,29 +50,9 @@ class MenuViewController: UIViewController {
                 let productTypeData = value as! Dictionary<String, Any>
                 let productType = ProductType(co2: productTypeData["co2"] as! Int, water: productTypeData["water"] as! Int, animals: productTypeData["animals"] as! Int)
                 SessionController.shared.productTypes[key] = productType
+                print(SessionController.shared.productTypes)
             }
         }
     }
-    
-    func fetchStopsUser() {
-        let userID = SessionController.shared.userID!
-        let childPath = "users/\(userID)/stopped"
-        ref.child(childPath).observeSingleEvent(of: .value) {
-            (snapshot) in
-            guard let data = snapshot.value as? [String:Any] else { return }
-            for (key, value) in (data) {
-                let stoppingData = value as! Dictionary<String, Any>
-                let stoppedItem = StoppedItem(days: stoppingData["days"] as! Int, stopDate: stoppingData["date"] as! String)
-                SessionController.shared.stoppedItemsUser[key] = stoppedItem
-                print(SessionController.shared.stoppedItemsUser)
-            }
-        }
-    }
-    
-    func updateSessionData() {
-        ref = Database.database().reference()
-        SessionController.shared.clearSessionData()
-        fetchStopsUser()
-        fetchProductTypes()
-    }
+
 }
