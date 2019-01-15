@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		030B424F21E6519E00FF4921 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */; };
 		0376657C21E8E17900F6E2C0 /* stoppedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376657B21E8E17900F6E2C0 /* stoppedItem.swift */; };
+		0376658021EDF1C900F6E2C0 /* MainSocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376657F21EDF1C900F6E2C0 /* MainSocialViewController.swift */; };
+		0376658221EDF2DA00F6E2C0 /* SocialEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376658121EDF2DA00F6E2C0 /* SocialEventsViewController.swift */; };
+		0376658421EDF2EB00F6E2C0 /* SocialFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376658321EDF2EB00F6E2C0 /* SocialFriendsViewController.swift */; };
+		0376658621EE0EB800F6E2C0 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376658521EE0EB800F6E2C0 /* AddFriendViewController.swift */; };
+		0376658821EE18EB00F6E2C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376658721EE18EB00F6E2C0 /* User.swift */; };
 		039DBCB621E615C000D5B22B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DBCB521E615C000D5B22B /* AppDelegate.swift */; };
 		039DBCB821E615C000D5B22B /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DBCB721E615C000D5B22B /* InitialViewController.swift */; };
 		039DBCBB21E615C000D5B22B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039DBCB921E615C000D5B22B /* Main.storyboard */; };
@@ -22,12 +27,18 @@
 		03A5BA5521E78B8600DA26FB /* DetailStoppingInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A5BA5421E78B8600DA26FB /* DetailStoppingInformationViewController.swift */; };
 		03A5BA5721E78C5800DA26FB /* NewStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A5BA5621E78C5800DA26FB /* NewStopViewController.swift */; };
 		03A5BA5921E790D400DA26FB /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A5BA5821E790D400DA26FB /* ProductType.swift */; };
+		03CEF31B21EE31FE00B80F6B /* SearchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CEF31A21EE31FE00B80F6B /* SearchUserTableViewCell.swift */; };
 		575543324A61FB4420D8E5A1 /* Pods_QuitMeat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72531E7F512C593AD2EB51CD /* Pods_QuitMeat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		0376657B21E8E17900F6E2C0 /* stoppedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stoppedItem.swift; sourceTree = "<group>"; };
+		0376657F21EDF1C900F6E2C0 /* MainSocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSocialViewController.swift; sourceTree = "<group>"; };
+		0376658121EDF2DA00F6E2C0 /* SocialEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialEventsViewController.swift; sourceTree = "<group>"; };
+		0376658321EDF2EB00F6E2C0 /* SocialFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialFriendsViewController.swift; sourceTree = "<group>"; };
+		0376658521EE0EB800F6E2C0 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
+		0376658721EE18EB00F6E2C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		039DBCB221E615C000D5B22B /* QuitMeat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitMeat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		039DBCB521E615C000D5B22B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		039DBCB721E615C000D5B22B /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +54,7 @@
 		03A5BA5421E78B8600DA26FB /* DetailStoppingInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStoppingInformationViewController.swift; sourceTree = "<group>"; };
 		03A5BA5621E78C5800DA26FB /* NewStopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStopViewController.swift; sourceTree = "<group>"; };
 		03A5BA5821E790D400DA26FB /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductType.swift; sourceTree = "<group>"; };
+		03CEF31A21EE31FE00B80F6B /* SearchUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableViewCell.swift; sourceTree = "<group>"; };
 		30B393818626FA82FF2840AD /* Pods-QuitMeat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitMeat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuitMeat/Pods-QuitMeat.debug.xcconfig"; sourceTree = "<group>"; };
 		72531E7F512C593AD2EB51CD /* Pods_QuitMeat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuitMeat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		828562520F6BAC1F2CBEAFF4 /* Pods-QuitMeat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitMeat.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuitMeat/Pods-QuitMeat.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,7 +101,13 @@
 				0376657B21E8E17900F6E2C0 /* stoppedItem.swift */,
 				039DBCC921E62A1500D5B22B /* LogInViewController.swift */,
 				039DBCCB21E6371900D5B22B /* SignUpViewController.swift */,
+				0376658721EE18EB00F6E2C0 /* User.swift */,
 				030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */,
+				0376658521EE0EB800F6E2C0 /* AddFriendViewController.swift */,
+				03CEF31A21EE31FE00B80F6B /* SearchUserTableViewCell.swift */,
+				0376657F21EDF1C900F6E2C0 /* MainSocialViewController.swift */,
+				0376658121EDF2DA00F6E2C0 /* SocialEventsViewController.swift */,
+				0376658321EDF2EB00F6E2C0 /* SocialFriendsViewController.swift */,
 				039DBCB921E615C000D5B22B /* Main.storyboard */,
 				03A5BA5421E78B8600DA26FB /* DetailStoppingInformationViewController.swift */,
 				03A5BA5621E78C5800DA26FB /* NewStopViewController.swift */,
@@ -270,13 +288,19 @@
 			files = (
 				03A5BA5321E782A900DA26FB /* SessionController.swift in Sources */,
 				039DBCCA21E62A1500D5B22B /* LogInViewController.swift in Sources */,
+				0376658221EDF2DA00F6E2C0 /* SocialEventsViewController.swift in Sources */,
 				039DBCB821E615C000D5B22B /* InitialViewController.swift in Sources */,
+				03CEF31B21EE31FE00B80F6B /* SearchUserTableViewCell.swift in Sources */,
+				0376658821EE18EB00F6E2C0 /* User.swift in Sources */,
 				039DBCC821E6187D00D5B22B /* MenuViewController.swift in Sources */,
+				0376658421EDF2EB00F6E2C0 /* SocialFriendsViewController.swift in Sources */,
+				0376658021EDF1C900F6E2C0 /* MainSocialViewController.swift in Sources */,
 				0376657C21E8E17900F6E2C0 /* stoppedItem.swift in Sources */,
 				03A5BA5521E78B8600DA26FB /* DetailStoppingInformationViewController.swift in Sources */,
 				03A5BA5921E790D400DA26FB /* ProductType.swift in Sources */,
 				039DBCCC21E6371900D5B22B /* SignUpViewController.swift in Sources */,
 				03A5BA5721E78C5800DA26FB /* NewStopViewController.swift in Sources */,
+				0376658621EE0EB800F6E2C0 /* AddFriendViewController.swift in Sources */,
 				039DBCB621E615C000D5B22B /* AppDelegate.swift in Sources */,
 				030B424F21E6519E00FF4921 /* HomeScreenViewController.swift in Sources */,
 			);

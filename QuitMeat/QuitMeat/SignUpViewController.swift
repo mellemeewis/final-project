@@ -45,6 +45,7 @@ class SignUpViewController: UIViewController {
     
     func handleSignUp() {
         guard let name = NameTextField.text?.capitalized else { return }
+        let nameAsLower = name.lowercased()
         guard let email = EmailTextField.text else { return }
         guard let password = PasswordTextField.text else { return }
         guard let repeatedPassword = RepeatPasswordTextField.text else { return }
@@ -55,6 +56,7 @@ class SignUpViewController: UIViewController {
                 print(Auth.auth().currentUser?.uid)
                 if let userID = Auth.auth().currentUser?.uid {
                     self.ref.child("users/\(userID)/name").setValue(name)
+                    self.ref.child("users/\(userID)/nameAsLower").setValue(nameAsLower)
                     let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                     changeRequest?.displayName = name
                     changeRequest?.commitChanges { error in
