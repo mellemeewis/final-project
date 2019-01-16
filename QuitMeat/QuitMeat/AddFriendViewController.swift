@@ -83,14 +83,34 @@ class AddFriendViewController: UIViewController, UITableViewDataSource, UITableV
         if let indexPath = tableView.indexPath(for: sender) {
             let newFriend = searchUsers[indexPath.row]
             let newFriendId = newFriend.ID
-            addFriend(with: newFriendId)
+            let newFriendName = newFriend.name
+            let returnValue = addFriend(with: newFriendId, newFriendName: newFriendName)
+            if returnValue == 1 {
+                self.dismiss(animated: false, completion: nil)
+            }
+        } else {
+            self.dismiss(animated: false, completion: nil)
         }
     }
     
-    func addFriend(with friendID: String) {
-        guard let userID = SessionController.shared.userID else { return }
-        guard userID != friendID else { return }
-        ref.child("users/\(userID)/friends/").updateChildValues([friendID:"true"])
-        self.dismiss(animated: false, completion: nil)
+    func addFriend(with friendID: String, newFriendName: String) -> Int {
+        guard let userID = SessionController.shared.userID else { return 1 }
+        guard let name = SessionController.shared.name else { return 1 }
+        guard userID != friendID else { return 1 }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .medium
+        let date = Date()
+        let eventDate = dateFormatter.string(from: date).replacingOccurrences(of: "/", with: "-")
+        
+        
+        // ref.child("users/\(userID)/friends/").updateChildValues([friendID:"true"])
+        
+        let eventDescription = "\(name) became friends with \(newFriendName)!"
+        let childupdates = ["/users/\(userID)/friends": [friendID: "true"], "/events/\(userID)/\(eventDate)": eventDescription] as [String : Any]
+        ref.updateChildValues(childupdates) { (error: Error?, ref: DatabaseReference) in
+            self.dismiss(animated: false, completion: nil)
+        }
+        return 0
     }
 }

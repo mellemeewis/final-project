@@ -10,6 +10,9 @@ import Foundation
 import Firebase
 
 class SessionController {
+    
+    
+    var screenHiehgt = UIScreen.main.bounds.height
         
     static let shared = SessionController()
     

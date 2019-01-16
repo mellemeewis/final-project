@@ -15,20 +15,32 @@ class SocialFriendsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var tableView: UITableView!
     var ref: DatabaseReference!
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedUser = friends[indexPath.row - 1]
+        print(selectedUser.name)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+        return friends.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath)
-        
-        configure(cell, forItemAt: indexPath)
-        return cell
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell")!
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FriendInfoCell", for: indexPath) as! FriendInfoTableViewCell
+            configure(cell, forItemAt: indexPath)
+            return cell
+        }
     }
     
-    func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath) {
-        let friend = friends[indexPath.row]
-        cell.textLabel?.text = friend.name
+    func configure(_ cell: FriendInfoTableViewCell, forItemAt indexPath: IndexPath) {
+        let friend = friends[indexPath.row - 1]
+        cell.nameLabel.text = friend.name
+        cell.animalLabel.text = String(friend.animalsSaved)
+        cell.co2Label.text = String(friend.co2Saved)
+        cell.waterLabel.text = String(friend.waterSaved)
         cell.backgroundColor = .clear
     }
     
@@ -36,7 +48,11 @@ class SocialFriendsViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-        print("viewloaded")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ref = Database.database().reference()
         fetchFriends()
     }
     
@@ -54,10 +70,18 @@ class SocialFriendsViewController: UIViewController, UITableViewDataSource, UITa
                     in
                     guard let friendData = snapshot.value as? [String:Any] else { return }
                     let friendName = friendData["name"] as! String
-                    var stopsFriend = [String]()
+                    var stopsFriend = [String:StoppedItem]()
                     if let stoppedData = friendData["stopped"] as? [String:Any] {
-                        for (key, _) in stoppedData {
-                            stopsFriend.append(key)
+                        for (key, value) in stoppedData {
+                            print(value)
+                            if let stoppedItemData = value as? [String:Any] {
+                                print(stoppedItemData)
+                                let days = stoppedItemData["days"] as! Int
+                                let stopDate = stoppedItemData["date"] as! String
+                                let stoppedItemFriend = StoppedItem(days: days, stopDate: stopDate)
+                                print(stoppedItemFriend)
+                                stopsFriend[key] = stoppedItemFriend
+                            }
                         }
                     }
                     var friendsFriend = [String]()
@@ -69,21 +93,16 @@ class SocialFriendsViewController: UIViewController, UITableViewDataSource, UITa
                     let newFriend = User(name: friendName, ID: friendID, stoppedItems: stopsFriend, friends: friendsFriend)
                     friends.append(newFriend)
                     print(friends)
-                    //  self.updateUI(with: friends)
+                    self.updateUI(with: friends)
                 })
             }
         })
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateUI(with friends: [User]) {
+        self.friends = friends
+        print(self.friends)
+        tableView.reloadData()
     }
-    */
 
 }
