@@ -10,7 +10,72 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class HomeScreenViewController: UIViewController {
+class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == savingInfoTableView {
+            print("HI")
+            return SessionController.shared.screenHeight / 25
+        }
+        return SessionController.shared.screenHeight / 15
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch tableView {
+        case stoppingInfoTableView:
+            return SessionController.shared.stoppedItemsUser.count
+        case savingInfoTableView:
+            return 3
+        case socialInfoTableView:
+            return 0
+        case challengeInfoTableView:
+            return 0
+        default:
+            return 0
+        }
+    }
+
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: UITableViewCell!
+        switch tableView {
+        case stoppingInfoTableView:
+            cell = tableView.dequeueReusableCell(withIdentifier: "StoppingInfoCell", for: indexPath)
+            let keys = Array(SessionController.shared.stoppedItemsUser.keys)
+            let values = Array(SessionController.shared.stoppedItemsUser.values)
+            print(keys)
+            print(values)
+            let i = indexPath.row
+            if i < keys.count {
+                
+                cell.textLabel?.text = "\(keys[i].capitalized) for \(values[i].days) day(s) a week since \(values[i].stopDate)!"
+//                cell.detailTextLabel?.text = values[i].stopDate
+            }
+        case savingInfoTableView:
+            cell = tableView.dequeueReusableCell(withIdentifier: "SavingInfoCell", for: indexPath)
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = "Animals"
+                cell.detailTextLabel?.text = String(animalsSaved)
+            case 1:
+                cell.textLabel?.text = "Water"
+                cell.detailTextLabel?.text = String(waterSaved)
+            case 2:
+                cell.textLabel?.text = "CO2"
+                cell.detailTextLabel?.text = String(co2Saved)
+            default:
+                return cell
+            }
+        case socialInfoTableView:
+            cell = tableView.dequeueReusableCell(withIdentifier: "SocialInfoCell", for: indexPath)
+        case challengeInfoTableView:
+            cell = tableView.dequeueReusableCell(withIdentifier: "ChallengeInfoCell", for: indexPath)
+        default:
+            return cell
+        }
+        return cell
+    }
+    
     
     @IBAction func unwindToHomeScreen(segue: UIStoryboardSegue) {
         
@@ -18,13 +83,27 @@ class HomeScreenViewController: UIViewController {
     
     var ref: DatabaseReference!
     
+    var co2Saved = 0
+    var animalsSaved = 0
+    var waterSaved = 0
+    
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var stoppingInfoButton: UIButton!
     @IBOutlet weak var SavingInfoButton: UIButton!
     @IBOutlet weak var socialButton: UIButton!
     @IBOutlet weak var challengesButton: UIButton!
     
-
+    @IBOutlet weak var stoppingInfoView: UIView!
+    @IBOutlet weak var savingInfoView: UIView!
+    @IBOutlet weak var socialInfoView: UIView!
+    @IBOutlet weak var challengeInfoView: UIView!
+    
+    @IBOutlet weak var stoppingInfoTableView: UITableView!
+    @IBOutlet weak var savingInfoTableView: UITableView!
+    @IBOutlet weak var socialInfoTableView: UITableView!
+    @IBOutlet weak var challengeInfoTableView: UITableView!
+    
+    
     @IBAction func LogOutButtonTapped(_ sender: UIButton) {
         try! Auth.auth().signOut()
         SessionController.shared.clearSessionData()
@@ -43,36 +122,24 @@ class HomeScreenViewController: UIViewController {
     }
     
     func updateUI(for data: String) {
-        let height = SessionController.shared.screenHiehgt / 5
+//        let height = SessionController.shared.screenHiehgt / 5
 
         logInButton.layer.cornerRadius = 15.0
-        stoppingInfoButton.layer.cornerRadius = 30.0
-        SavingInfoButton.layer.cornerRadius = 30.0
-        socialButton.layer.cornerRadius = 30.0
-        challengesButton.layer.cornerRadius = 30.0
-        let heightConstraint = NSLayoutConstraint(item: stoppingInfoButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: height)
-        let heightConstraint1 = NSLayoutConstraint(item: SavingInfoButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: height)
-        let heightConstraint2 = NSLayoutConstraint(item: socialButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: height)
-        let heightConstraint3 = NSLayoutConstraint(item: challengesButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: height)
-        NSLayoutConstraint.activate([heightConstraint, heightConstraint1, heightConstraint2, heightConstraint3])
+        stoppingInfoView.layer.cornerRadius = 30.0
+        savingInfoView.layer.cornerRadius = 30.0
+        socialInfoView.layer.cornerRadius = 30.0
+        challengeInfoView.layer.cornerRadius = 30.0
         
         switch data {
         case "userStoppingInfo":
-            var stoppedString = "You stopped eating: \n"
-            for (key, value) in SessionController.shared.stoppedItemsUser {
-                stoppedString = stoppedString + key + " since " + value.stopDate + " for " + String(value.days) + " days a week.\n"
-            }
-            self.stoppingInfoButton.setTitle(stoppedString, for: .normal)
+            stoppingInfoTableView.reloadData()
         case "userSavedInfo":
-            var co2Saved = 0
-            var waterSaved = 0
-            var animalsSaved = 0
+            savingInfoTableView.reloadData()
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .short
             dateFormatter.timeStyle = .none
             let calender = Calendar.current
-            
             
             for (key, value) in SessionController.shared.stoppedItemsUser {
                 let dateAsString = value.stopDate
@@ -85,9 +152,6 @@ class HomeScreenViewController: UIViewController {
                 waterSaved = waterSaved + Int(daysNotEaten * Float((SessionController.shared.productTypes[key]?.water)!))
                 animalsSaved = animalsSaved + Int(daysNotEaten * Float((SessionController.shared.productTypes[key]?.animals)!))
             }
-            let savedString = "By doing this you saved:\n\(co2Saved) gram CO2\n\(waterSaved) liters of water\n\(animalsSaved) animals!"
-            self.SavingInfoButton.setTitle(savedString, for: .normal)
-
         default:
             return
         }

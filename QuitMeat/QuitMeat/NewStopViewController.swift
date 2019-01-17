@@ -63,7 +63,7 @@ class NewStopViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         guard let name = SessionController.shared.name else { return }
         guard let selectedProductType = self.selectedProductType else { return }
         let eventDescription = "\(name) stopped eating \(selectedProductType) on \(dateAsString) for \(daysAWeek!) days a week!"
-        let childupdates = ["/users/\(userID)/stopped/\(selectedProductType)": ["days": daysAWeek, "date": dateAsString], "/events/\(eventDate)/\(userID)": eventDescription] as [String : Any]
+        let childupdates = ["/users/\(userID)/stopped/\(selectedProductType)": ["days": daysAWeek, "date": dateAsString], "/events/\(userID)/\(eventDate)": eventDescription] as [String : Any]
         ref.updateChildValues(childupdates) { (error: Error?, ref: DatabaseReference) in
             if error == nil {
                 self.dismiss(animated: false)

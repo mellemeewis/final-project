@@ -107,7 +107,7 @@ class AddFriendViewController: UIViewController, UITableViewDataSource, UITableV
         // ref.child("users/\(userID)/friends/").updateChildValues([friendID:"true"])
         
         let eventDescription = "\(name) became friends with \(newFriendName)!"
-        let childupdates = ["/users/\(userID)/friends": [friendID: "true"], "/events/\(userID)/\(eventDate)": eventDescription] as [String : Any]
+        let childupdates = ["/users/\(userID)/friends/\(friendID)":  "true", "/events/\(userID)/\(eventDate)": eventDescription] as [String : Any]
         ref.updateChildValues(childupdates) { (error: Error?, ref: DatabaseReference) in
             self.dismiss(animated: false, completion: nil)
         }
