@@ -11,13 +11,11 @@ import Firebase
 
 class SocialEventsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var events = [Event]()
-    var friendIDs = [String]()
     var ref: DatabaseReference!
     @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count * 2 - 1
+        return SessionController.shared.events.count * 2 - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,7 +40,7 @@ class SocialEventsViewController: UIViewController, UITableViewDataSource, UITab
 
     func configure(_ cell: EventTableViewCell, forItemAt indexPath: IndexPath) {
         let currentUserName = SessionController.shared.name!
-        let event = events[indexPath.row / 2]
+        let event = SessionController.shared.events[indexPath.row / 2]
         cell.dateLabel.text = event.date
         var description = event.description
         if description.components(separatedBy: " ").first == currentUserName {
@@ -70,7 +68,7 @@ class SocialEventsViewController: UIViewController, UITableViewDataSource, UITab
             guard let data = snapshot.value as? [String:Any] else { return }
             var events = [Event]()
             for (key, value) in data {
-                if self.friendIDs.contains(key) || key == userID {
+                if SessionController.shared.friendIDs.contains(key) || key == userID {
                     guard let eventData = value as? [String:Any] else { return }
                     for (key, value) in eventData {
                         let date = key
@@ -80,6 +78,7 @@ class SocialEventsViewController: UIViewController, UITableViewDataSource, UITab
                     }
                 }
             }
+            SessionController.shared.events = events.sorted(by: { $0.date > $1.date })
             self.updateUI(with: events)
         })
     }
@@ -88,18 +87,17 @@ class SocialEventsViewController: UIViewController, UITableViewDataSource, UITab
         guard let userID = SessionController.shared.userID else { return }
         ref.child("users/\(userID)/friends").observeSingleEvent(of: .value, with: { snapshot
             in
-            guard let data = snapshot.value as? [String:Any] else { return }
+            guard let data = snapshot.value as? [String:Any] else { self.fetchEvents(); return }
             var friends = [String]()
             for (key, _) in data {
                 friends.append(key)
             }
-            self.friendIDs = friends
+            SessionController.shared.friendIDs = friends
             self.fetchEvents()
         })
     }
     
     func updateUI(with events: [Event]) {
-        self.events = events.sorted(by: { $0.date > $1.date })
         tableView.reloadData()
     }
         

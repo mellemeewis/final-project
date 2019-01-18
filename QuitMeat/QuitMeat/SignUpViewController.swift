@@ -62,9 +62,10 @@ class SignUpViewController: UIViewController {
                     changeRequest?.commitChanges { error in
                         if error == nil {
                             SessionController.shared.name = name.capitalized
+                            self.dismiss(animated: false, completion: nil)
                         }
                     }
-                    self.dismiss(animated: false, completion: nil)
+//                    self.dismiss(animated: false, completion: nil)
                 }
             } else {
                 print("Error creating user: \(error!.localizedDescription)")
