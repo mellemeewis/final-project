@@ -77,7 +77,7 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         case socialInfoTableView:
             cell = tableView.dequeueReusableCell(withIdentifier: "SocialInfoCell", for: indexPath)
-            guard SessionController.shared.stoppedItemsUser.count != 0 else {
+            guard SessionController.shared.events.count != 0 else {
                 cell.textLabel?.text = "Press here to find friends!"
                 return cell
             }
@@ -149,6 +149,9 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         else if socialInfoTableView.gestureRecognizers!.contains(sender) {
             performSegue(withIdentifier: "ToMainSocialSegue", sender: nil)
+        }
+        else if challengeInfoTableView.gestureRecognizers!.contains(sender) {
+            performSegue(withIdentifier: "ToMainChallengeSegue", sender: nil)
         }
     }
     

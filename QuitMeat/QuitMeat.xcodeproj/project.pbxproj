@@ -14,6 +14,13 @@
 		0376658421EDF2EB00F6E2C0 /* SocialFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376658321EDF2EB00F6E2C0 /* SocialFriendsViewController.swift */; };
 		0376658621EE0EB800F6E2C0 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376658521EE0EB800F6E2C0 /* AddFriendViewController.swift */; };
 		0376658821EE18EB00F6E2C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376658721EE18EB00F6E2C0 /* User.swift */; };
+		0376F29221F755E900987F9D /* NewChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376F29121F755E900987F9D /* NewChallengeViewController.swift */; };
+		0376F29621F8816800987F9D /* MainChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376F29521F8816800987F9D /* MainChallengesViewController.swift */; };
+		0376F29821F8823400987F9D /* ChallengesUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376F29721F8823400987F9D /* ChallengesUserViewController.swift */; };
+		0376F29A21F8827100987F9D /* ChooceChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376F29921F8827100987F9D /* ChooceChallengeViewController.swift */; };
+		0376F29E21F8913D00987F9D /* ChooseChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376F29D21F8913D00987F9D /* ChooseChallengeTableViewCell.swift */; };
+		0376F2A021F8949D00987F9D /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376F29F21F8949D00987F9D /* Challenge.swift */; };
+		0376F2A221F8A9AB00987F9D /* SingleChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376F2A121F8A9AB00987F9D /* SingleChallengeViewController.swift */; };
 		039DBCB621E615C000D5B22B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DBCB521E615C000D5B22B /* AppDelegate.swift */; };
 		039DBCB821E615C000D5B22B /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DBCB721E615C000D5B22B /* InitialViewController.swift */; };
 		039DBCBB21E615C000D5B22B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039DBCB921E615C000D5B22B /* Main.storyboard */; };
@@ -42,6 +49,13 @@
 		0376658321EDF2EB00F6E2C0 /* SocialFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialFriendsViewController.swift; sourceTree = "<group>"; };
 		0376658521EE0EB800F6E2C0 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		0376658721EE18EB00F6E2C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0376F29121F755E900987F9D /* NewChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChallengeViewController.swift; sourceTree = "<group>"; };
+		0376F29521F8816800987F9D /* MainChallengesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChallengesViewController.swift; sourceTree = "<group>"; };
+		0376F29721F8823400987F9D /* ChallengesUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesUserViewController.swift; sourceTree = "<group>"; };
+		0376F29921F8827100987F9D /* ChooceChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooceChallengeViewController.swift; sourceTree = "<group>"; };
+		0376F29D21F8913D00987F9D /* ChooseChallengeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseChallengeTableViewCell.swift; sourceTree = "<group>"; };
+		0376F29F21F8949D00987F9D /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		0376F2A121F8A9AB00987F9D /* SingleChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleChallengeViewController.swift; sourceTree = "<group>"; };
 		039DBCB221E615C000D5B22B /* QuitMeat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitMeat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		039DBCB521E615C000D5B22B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		039DBCB721E615C000D5B22B /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +123,7 @@
 				039DBCCB21E6371900D5B22B /* SignUpViewController.swift */,
 				0376658721EE18EB00F6E2C0 /* User.swift */,
 				03CEF32421EF539800B80F6B /* Event.swift */,
+				0376F29F21F8949D00987F9D /* Challenge.swift */,
 				030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */,
 				0376658521EE0EB800F6E2C0 /* AddFriendViewController.swift */,
 				03CEF31A21EE31FE00B80F6B /* SearchUserTableViewCell.swift */,
@@ -116,6 +131,12 @@
 				0376657F21EDF1C900F6E2C0 /* MainSocialViewController.swift */,
 				0376658121EDF2DA00F6E2C0 /* SocialEventsViewController.swift */,
 				03CEF32221EF520200B80F6B /* EventTableViewCell.swift */,
+				0376F29D21F8913D00987F9D /* ChooseChallengeTableViewCell.swift */,
+				0376F29521F8816800987F9D /* MainChallengesViewController.swift */,
+				0376F29721F8823400987F9D /* ChallengesUserViewController.swift */,
+				0376F29921F8827100987F9D /* ChooceChallengeViewController.swift */,
+				0376F29121F755E900987F9D /* NewChallengeViewController.swift */,
+				0376F2A121F8A9AB00987F9D /* SingleChallengeViewController.swift */,
 				0376658321EDF2EB00F6E2C0 /* SocialFriendsViewController.swift */,
 				039DBCB921E615C000D5B22B /* Main.storyboard */,
 				03A5BA5421E78B8600DA26FB /* DetailStoppingInformationViewController.swift */,
@@ -296,9 +317,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				03A5BA5321E782A900DA26FB /* SessionController.swift in Sources */,
+				0376F2A021F8949D00987F9D /* Challenge.swift in Sources */,
+				0376F29A21F8827100987F9D /* ChooceChallengeViewController.swift in Sources */,
 				039DBCCA21E62A1500D5B22B /* LogInViewController.swift in Sources */,
 				0376658221EDF2DA00F6E2C0 /* SocialEventsViewController.swift in Sources */,
 				039DBCB821E615C000D5B22B /* InitialViewController.swift in Sources */,
+				0376F2A221F8A9AB00987F9D /* SingleChallengeViewController.swift in Sources */,
 				03CEF32521EF539800B80F6B /* Event.swift in Sources */,
 				03CEF31B21EE31FE00B80F6B /* SearchUserTableViewCell.swift in Sources */,
 				0376658821EE18EB00F6E2C0 /* User.swift in Sources */,
@@ -306,15 +330,19 @@
 				0376658421EDF2EB00F6E2C0 /* SocialFriendsViewController.swift in Sources */,
 				0376658021EDF1C900F6E2C0 /* MainSocialViewController.swift in Sources */,
 				03CEF31F21EF415F00B80F6B /* FriendInfoTableViewCell.swift in Sources */,
+				0376F29821F8823400987F9D /* ChallengesUserViewController.swift in Sources */,
 				0376657C21E8E17900F6E2C0 /* stoppedItem.swift in Sources */,
 				03CEF32321EF520200B80F6B /* EventTableViewCell.swift in Sources */,
 				03A5BA5521E78B8600DA26FB /* DetailStoppingInformationViewController.swift in Sources */,
 				03A5BA5921E790D400DA26FB /* ProductType.swift in Sources */,
+				0376F29E21F8913D00987F9D /* ChooseChallengeTableViewCell.swift in Sources */,
 				039DBCCC21E6371900D5B22B /* SignUpViewController.swift in Sources */,
 				03A5BA5721E78C5800DA26FB /* NewStopViewController.swift in Sources */,
 				0376658621EE0EB800F6E2C0 /* AddFriendViewController.swift in Sources */,
+				0376F29221F755E900987F9D /* NewChallengeViewController.swift in Sources */,
 				039DBCB621E615C000D5B22B /* AppDelegate.swift in Sources */,
 				030B424F21E6519E00FF4921 /* HomeScreenViewController.swift in Sources */,
+				0376F29621F8816800987F9D /* MainChallengesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,9 @@ class SessionController {
     var stoppedItemsUser = [String:StoppedItem]()
     var friendIDs = [String]()
     var events = [Event]()
+    var challenges = [Challenge]()
+    var currentChallengesUser = [String:String]()
+    var completedChallengesUsers = [String:String]()
     let dateFormatter = DateFormatter()
     let calender = Calendar.current
 

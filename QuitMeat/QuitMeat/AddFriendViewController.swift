@@ -51,9 +51,7 @@ class AddFriendViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-        
-        // Do any additional setup after loading the view.
-    }
+        }
     
     func findUsers(searchText: String) {
         ref.child("users").queryOrdered(byChild: "nameAsLower").queryStarting(atValue: searchText).queryEnding(atValue: searchText+"\u{f8ff}").observe(.value, with: { snapshot in
@@ -103,8 +101,6 @@ class AddFriendViewController: UIViewController, UITableViewDataSource, UITableV
         let date = Date()
         let eventDate = dateFormatter.string(from: date).replacingOccurrences(of: "/", with: "-")
         
-        
-        // ref.child("users/\(userID)/friends/").updateChildValues([friendID:"true"])
         
         let eventDescription = "\(name) became friends with \(newFriendName)!"
         let childupdates = ["/users/\(userID)/friends/\(friendID)":  "true", "/events/\(userID)/\(eventDate)": eventDescription] as [String : Any]
