@@ -66,24 +66,34 @@ class ChooceChallengeViewController: UIViewController, UITableViewDataSource, UI
     func fetchCurrentChallengesUser() {
         guard let userID = SessionController.shared.userID else { return }
         ref.child("users/\(userID)/currentChallenges").observeSingleEvent(of: .value, with: { snapshot  in
-            var currentChallenges = [String:String]()
-            guard let data = snapshot.value as? [String:Any] else { SessionController.shared.currentChallengesUser = currentChallenges; return }
+            var currentChallenges = [String:AcceptedChallenge]()
+            guard let data = snapshot.value as? [String:Any] else { SessionController.shared.currentChallengesIDsUser = currentChallenges; return }
             for (key, value) in data {
-                currentChallenges[key] = value as? String
+                guard let dateData = value as? [String] else { return }
+                let challengeID = key
+                let startDate = dateData[0]
+                let goalDate = dateData[1]
+                let currentChallenge = AcceptedChallenge(challengeID: challengeID, startDate: startDate, goalDate: goalDate)
+                currentChallenges[challengeID] = currentChallenge
             }
-            SessionController.shared.currentChallengesUser = currentChallenges
+            SessionController.shared.currentChallengesIDsUser = currentChallenges
         })
     }
     
     func fetchCompletedChallengesUser() {
         guard let userID = SessionController.shared.userID else { return }
         ref.child("users/\(userID)/completedChallenges").observeSingleEvent(of: .value, with: { snapshot  in
-            guard let data = snapshot.value as? [String:Any] else { return }
-            var completedChallenges = [String:String]()
+            var completedChallenges = [String:AcceptedChallenge]()
+            guard let data = snapshot.value as? [String:Any] else { SessionController.shared.completedChallengesIDsUser = completedChallenges; return }
             for (key, value) in data {
-                completedChallenges[key] = value as? String
+                guard let dateData = value as? [String] else { return }
+                let challengeID = key
+                let startDate = dateData[0]
+                let goalDate = dateData[1]
+                let completedChallenge = AcceptedChallenge(challengeID: challengeID, startDate: startDate, goalDate: goalDate)
+                completedChallenges[challengeID] = completedChallenge
             }
-            SessionController.shared.completedChallengesUsers = completedChallenges
+            SessionController.shared.completedChallengesIDsUser = completedChallenges
         })
     }
     
@@ -103,6 +113,7 @@ class ChooceChallengeViewController: UIViewController, UITableViewDataSource, UI
     func fetchChallenges() {
         ref.child("challenges").observeSingleEvent(of: .value, with: { snapshot in
             let userID = SessionController.shared.userID!
+            print(userID)
             guard let data = snapshot.value as? [String:Any] else { return }
             var challenges = [Challenge]()
             for (key, value) in data {

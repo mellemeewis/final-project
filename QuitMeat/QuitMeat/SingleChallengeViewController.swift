@@ -52,12 +52,9 @@ class SingleChallengeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if SessionController.shared.completedChallengesUsers.keys.contains(challenge.ID) {
+        if SessionController.shared.completedChallengesIDsUser.keys.contains(challenge.ID) {
             updateUI(with: "completedChallenge")
-        } else if SessionController.shared.currentChallengesUser.keys.contains(challenge.ID) {
-            print("hoi")
-            print(SessionController.shared.currentChallengesUser)
-            print("HI")
+        } else if SessionController.shared.currentChallengesIDsUser.keys.contains(challenge.ID) {
             updateUI(with: "currentChallenge")
         } else {
             updateUI(with: "newChallenge")
@@ -89,18 +86,23 @@ class SingleChallengeViewController: UIViewController {
         } else if challengeType == "currentChallenge" {
             acceptChallengeButton.setTitle("Quit Challenge", for: .normal)
             acceptChallengeButton.backgroundColor = UIColor.init(displayP3Red: 0.6, green: 0, blue: 0, alpha: 1)
+            let startDate = SessionController.shared.currentChallengesIDsUser[challenge.ID]?.startDate
+            let goalDate = SessionController.shared.currentChallengesIDsUser[challenge.ID]?.goalDate
             startDateHeaderLabel.text = "Started on:"
-            let startDateAsString = SessionController.shared.currentChallengesUser[challenge.ID]?.replacingOccurrences(of: "-", with: "/").components(separatedBy: ",").first
-            let startDate = dateFormatter.date(from: startDateAsString!)
-            var dateComponent = DateComponents()
-            dateComponent.day = challenge.weeks * 7
-            let goalDate = Calendar.current.date(byAdding: dateComponent, to: startDate!)
-            let goalDateAsString = dateFormatter.string(from: goalDate!)
-            startDateLabel.text = startDateAsString
-            stopDateLabel.text = goalDateAsString
+            startDateLabel.text = startDate
+            stopDateLabel.text = goalDate
+            savingsHeaderLabel.text = "This Saves:"
+            stopDateHeaderLabel.text = "Goal Date:"
 
         } else if challengeType == "completedChallenge" {
             acceptChallengeButton.setTitle("Forget Challenge", for: .normal)
+            let startDate = SessionController.shared.completedChallengesIDsUser[challenge.ID]?.startDate.components(separatedBy: ",").first
+            let completionDate = SessionController.shared.completedChallengesIDsUser[challenge.ID]?.goalDate.components(separatedBy: ",").first
+            startDateHeaderLabel.text = "Started on:"
+            startDateLabel.text = startDate
+            stopDateLabel.text = completionDate
+            savingsHeaderLabel.text = "This Saved:"
+            stopDateHeaderLabel.text = "Completed on:"
         }
     }
     
@@ -109,12 +111,17 @@ class SingleChallengeViewController: UIViewController {
         guard let name = SessionController.shared.name else { return }
         let challengeName = challenge.name
         let date = Date()
+        var dateComponent = DateComponents()
+        dateComponent.day = challenge.weeks * 7
+        let goalDate = Calendar.current.date(byAdding: dateComponent, to: date)
         dateFormatter.timeStyle = .medium
         let dateAndTimeAsString = dateFormatter.string(from: date).replacingOccurrences(of: "/", with: "-")
+        let goalDateAsString = dateFormatter.string(from: goalDate!).replacingOccurrences(of: "/", with: "-")
         dateFormatter.timeStyle = .none
         let challengeID = challenge.ID
         let eventDescription = "\(name) accepted the challenge '\(challengeName)!'"
-        let childupdates = ["/users/\(userID)/currentChallenges/\(challengeID)":  dateAndTimeAsString, "/events/\(userID)/\(dateAndTimeAsString)": eventDescription] as [String : Any]
+        let childupdates = ["/users/\(userID)/currentChallenges/\(challengeID)":  [dateAndTimeAsString, goalDateAsString], "/events/\(userID)/\(dateAndTimeAsString)": eventDescription] as [String : Any]
+        print(childupdates)
         ref.updateChildValues(childupdates) { (error: Error?, ref: DatabaseReference) in
             self.dismiss(animated: false, completion: nil)
         }
@@ -136,7 +143,7 @@ class SingleChallengeViewController: UIViewController {
                 self.dismiss(animated: false, completion: nil)
             }
         } else if quitType == "forget" {
-            ref.child("/users/\(userID)/currentChallenges/\(challengeID)").removeValue() { (error: Error?, ref: DatabaseReference) in
+            ref.child("/users/\(userID)/completedChallenges/\(challengeID)").removeValue() { (error: Error?, ref: DatabaseReference) in
                 self.dismiss(animated: false, completion: nil)
             }
         }

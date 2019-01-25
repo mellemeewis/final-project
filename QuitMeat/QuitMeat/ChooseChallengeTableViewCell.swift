@@ -15,4 +15,7 @@ class ChooseChallengeTableViewCell: UITableViewCell {
     @IBOutlet weak var creationDateLabel: UILabel!
     @IBOutlet weak var createdByLabel: UILabel!
     @IBOutlet weak var weeksLabel: UILabel!
+    
+    @IBOutlet weak var challengeProgressBar: UIProgressView!
+    
 }

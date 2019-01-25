@@ -54,5 +54,12 @@ struct Challenge {
         let co2Savings = Int(daysNotEating * Float((SessionController.shared.productTypes[self.productType]?.animals)!))
         return co2Savings
     }
+    
+}
+
+struct AcceptedChallenge {
+    var challengeID: String
+    var startDate: String
+    var goalDate: String
 }
 

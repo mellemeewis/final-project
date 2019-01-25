@@ -79,7 +79,6 @@ class SocialFriendsViewController: UIViewController, UITableViewDataSource, UITa
                                 let days = stoppedItemData["days"] as! Int
                                 let stopDate = stoppedItemData["date"] as! String
                                 let stoppedItemFriend = StoppedItem(days: days, stopDate: stopDate)
-                                print(stoppedItemFriend)
                                 stopsFriend[key] = stoppedItemFriend
                             }
                         }
@@ -92,7 +91,6 @@ class SocialFriendsViewController: UIViewController, UITableViewDataSource, UITa
                     }
                     let newFriend = User(name: friendName, ID: friendID, stoppedItems: stopsFriend, friends: friendsFriend)
                     friends.append(newFriend)
-                    print(friends)
                     self.updateUI(with: friends)
                 })
             }
@@ -104,5 +102,4 @@ class SocialFriendsViewController: UIViewController, UITableViewDataSource, UITa
         print(self.friends)
         tableView.reloadData()
     }
-
 }

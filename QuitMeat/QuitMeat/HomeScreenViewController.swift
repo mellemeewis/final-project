@@ -36,7 +36,12 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             return SessionController.shared.events.count
         case challengeInfoTableView:
-            return 0
+            if SessionController.shared.currentChallengesIDsUser.count == 0 {
+                print("EROOR")
+                return 1
+            }
+            print("NOICE")
+            return SessionController.shared.currentChallengesIDsUser.count
         default:
             return 0
         }
@@ -90,7 +95,22 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.textLabel?.text = description
             
         case challengeInfoTableView:
+            print(SessionController.shared.currentChallengesIDsUser.count)
             cell = tableView.dequeueReusableCell(withIdentifier: "ChallengeInfoCell", for: indexPath)
+            guard SessionController.shared.currentChallengesIDsUser.count != 0 else {
+                cell.textLabel?.text = "Press here to find challenges!"
+                return cell
+            }
+            print("CHAL")
+
+            let orderdChallenges = SessionController.shared.currentChallengesIDsUser.sorted(by: { $0.value.goalDate > $1.value.goalDate })
+            print(orderdChallenges)
+            print(indexPath.row)
+            let challengeID = orderdChallenges[indexPath.row].key
+            print(challengeID)
+            guard let challenge = SessionController.shared.currentChallengesObjectsUser.first(where: { $0.ID == challengeID }) else { return cell }
+            cell.textLabel?.text = challenge.name
+            cell.detailTextLabel?.text = challenge.descirption
         default:
             cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         }
@@ -138,7 +158,6 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         savingInfoTableView.addGestureRecognizer(tapSavingInfo)
         socialInfoTableView.addGestureRecognizer(tapSocialInfo)
         challengeInfoTableView.addGestureRecognizer(tapChallengeInfo)
-        // Do any additional setup after loading the view.
     }
     
     
@@ -160,6 +179,7 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         updateUI(for: "")
         fetchStopsUser()
         fetchFriendsAndEvents()
+        fetchCurrentChallengesIDsUser()
     }
     
     func updateUI(for data: String) {
@@ -175,25 +195,11 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             stoppingInfoTableView.reloadData()
         case "userSavedInfo":
             savingInfoTableView.reloadData()
-//
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateStyle = .short
-//            dateFormatter.timeStyle = .none
-//            let calender = Calendar.current
-//
-//            for (key, value) in SessionController.shared.stoppedItemsUser {
-//                let dateAsString = value.stopDate
-//                let stopDate = dateFormatter.date(from: dateAsString)!
-//                let currentDate = Date()
-//                let components = calender.dateComponents([.day], from: stopDate, to: currentDate)
-//                let dayDifference = components.day!
-//                let daysNotEaten = Float(Float(dayDifference) / 7.00 * Float(value.days))
-//                co2Saved = co2Saved + Int(daysNotEaten * Float((SessionController.shared.productTypes[key]?.co2)!))
-//                waterSaved = waterSaved + Int(daysNotEaten * Float((SessionController.shared.productTypes[key]?.water)!))
-//                animalsSaved = animalsSaved + Int(daysNotEaten * Float((SessionController.shared.productTypes[key]?.animals)!))
-//            }
+
         case "socialInfo":
             socialInfoTableView.reloadData()
+        case "challengesInfo":
+            challengeInfoTableView.reloadData()
         default:
             return
         }
@@ -264,4 +270,76 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             self.fetchEvents()
         })
     }
+    
+    func fetchCurrentChallengesIDsUser() {
+        guard let userID = SessionController.shared.userID else { return }
+        ref.child("users/\(userID)/currentChallenges").observeSingleEvent(of: .value, with: { snapshot  in
+            var currentChallenges = [String:AcceptedChallenge]()
+            guard let data = snapshot.value as? [String:Any] else { SessionController.shared.currentChallengesIDsUser = currentChallenges; self.fetchCompletedChallengesIDsUser(); return }
+            for (key, value) in data {
+                guard let dateData = value as? [String] else { return }
+                let challengeID = key
+                let startDateAsString = dateData[0]
+                let goalDateAsString = dateData[1]
+                let currentChallenge = AcceptedChallenge(challengeID: challengeID, startDate: startDateAsString, goalDate: goalDateAsString)
+                    currentChallenges[challengeID] = currentChallenge
+                }
+            SessionController.shared.currentChallengesIDsUser = currentChallenges
+            self.fetchCompletedChallengesIDsUser()
+        })
+    }
+    
+    func fetchCompletedChallengesIDsUser() {
+        guard let userID = SessionController.shared.userID else { return }
+        ref.child("users/\(userID)/completedChallenges").observeSingleEvent(of: .value, with: { snapshot  in
+            var completedChallenges = [String:AcceptedChallenge]()
+            guard let data = snapshot.value as? [String:Any] else { SessionController.shared.completedChallengesIDsUser = completedChallenges; self.fetchChallenges(); return }
+            for (key, value) in data {
+                guard let dateData = value as? [String] else { return }
+                let challengeID = key
+                let startDate = dateData[0]
+                let goalDate = dateData[1]
+                let completedChallenge = AcceptedChallenge(challengeID: challengeID, startDate: startDate, goalDate: goalDate)
+                completedChallenges[challengeID] = completedChallenge
+            }
+            SessionController.shared.completedChallengesIDsUser = completedChallenges
+            self.fetchChallenges()
+        })
+    }
+    
+    func fetchChallenges() {
+        ref.child("challenges").observeSingleEvent(of: .value, with: { snapshot in
+            guard let data = snapshot.value as? [String:Any] else { return }
+            var currentChallenges = [Challenge]()
+            var completedChallenges = [Challenge]()
+            for (_, value) in data {
+                guard let challengeData = value as? [String:Any] else { return }
+                for (key, value) in challengeData {
+                    guard let challengeDetails = value as? [String:Any] else { return }
+                    let creationDate = challengeDetails["creationDate"] as! String
+                    let challengeName = challengeDetails["name"] as! String
+                    let challengeDescription = challengeDetails["description"] as! String
+                    let daysAWeek = challengeDetails["days"] as! Int
+                    let productType = challengeDetails["productType"] as! String
+                    let weeks = challengeDetails["weeks"] as! Int
+                    let createdBy = challengeDetails["createdBy"] as! String
+                    let challengeID = key
+                    let newChallenge = Challenge(ID: challengeID, creationDate: creationDate, name: challengeName, createdBy: createdBy, descirption: challengeDescription, daysAWeek: daysAWeek, productType: productType, weeks: weeks)
+                    if SessionController.shared.currentChallengesIDsUser.keys.contains(challengeID) {
+                        currentChallenges.append(newChallenge)
+                    } else if SessionController.shared.completedChallengesIDsUser.keys.contains(challengeID) {
+                        completedChallenges.append(newChallenge)
+                    }
+                }
+            }
+            SessionController.shared.currentChallengesObjectsUser = currentChallenges
+            SessionController.shared.completedChallengesObjectsUser = completedChallenges
+            print(SessionController.shared.currentChallengesObjectsUser)
+            print(SessionController.shared.completedChallengesObjectsUser)
+            self.updateUI(for: "challengesInfo")
+        })
+    }
+
+    
+    
 }
