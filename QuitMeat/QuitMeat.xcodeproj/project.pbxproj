@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		030B424F21E6519E00FF4921 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */; };
+		0367050D21FCB5E0008B0993 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0367050C21FCB5E0008B0993 /* DetailsTableViewCell.swift */; };
+		0367051121FCBCB3008B0993 /* StopDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0367051021FCBCB3008B0993 /* StopDetail.swift */; };
 		0376657C21E8E17900F6E2C0 /* stoppedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376657B21E8E17900F6E2C0 /* stoppedItem.swift */; };
 		0376658021EDF1C900F6E2C0 /* MainSocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376657F21EDF1C900F6E2C0 /* MainSocialViewController.swift */; };
 		0376658221EDF2DA00F6E2C0 /* SocialEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376658121EDF2DA00F6E2C0 /* SocialEventsViewController.swift */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		0367050C21FCB5E0008B0993 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
+		0367051021FCBCB3008B0993 /* StopDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetail.swift; sourceTree = "<group>"; };
 		0376657B21E8E17900F6E2C0 /* stoppedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stoppedItem.swift; sourceTree = "<group>"; };
 		0376657F21EDF1C900F6E2C0 /* MainSocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSocialViewController.swift; sourceTree = "<group>"; };
 		0376658121EDF2DA00F6E2C0 /* SocialEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialEventsViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				039DBCCB21E6371900D5B22B /* SignUpViewController.swift */,
 				0376658721EE18EB00F6E2C0 /* User.swift */,
 				03CEF32421EF539800B80F6B /* Event.swift */,
+				0367051021FCBCB3008B0993 /* StopDetail.swift */,
 				0376F29F21F8949D00987F9D /* Challenge.swift */,
 				030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */,
 				0376658521EE0EB800F6E2C0 /* AddFriendViewController.swift */,
@@ -132,6 +137,7 @@
 				0376658121EDF2DA00F6E2C0 /* SocialEventsViewController.swift */,
 				03CEF32221EF520200B80F6B /* EventTableViewCell.swift */,
 				0376F29D21F8913D00987F9D /* ChooseChallengeTableViewCell.swift */,
+				0367050C21FCB5E0008B0993 /* DetailsTableViewCell.swift */,
 				0376F29521F8816800987F9D /* MainChallengesViewController.swift */,
 				0376F29721F8823400987F9D /* ChallengesUserViewController.swift */,
 				0376F29921F8827100987F9D /* ChooceChallengeViewController.swift */,
@@ -322,6 +328,7 @@
 				039DBCCA21E62A1500D5B22B /* LogInViewController.swift in Sources */,
 				0376658221EDF2DA00F6E2C0 /* SocialEventsViewController.swift in Sources */,
 				039DBCB821E615C000D5B22B /* InitialViewController.swift in Sources */,
+				0367050D21FCB5E0008B0993 /* DetailsTableViewCell.swift in Sources */,
 				0376F2A221F8A9AB00987F9D /* SingleChallengeViewController.swift in Sources */,
 				03CEF32521EF539800B80F6B /* Event.swift in Sources */,
 				03CEF31B21EE31FE00B80F6B /* SearchUserTableViewCell.swift in Sources */,
@@ -336,6 +343,7 @@
 				03A5BA5521E78B8600DA26FB /* DetailStoppingInformationViewController.swift in Sources */,
 				03A5BA5921E790D400DA26FB /* ProductType.swift in Sources */,
 				0376F29E21F8913D00987F9D /* ChooseChallengeTableViewCell.swift in Sources */,
+				0367051121FCBCB3008B0993 /* StopDetail.swift in Sources */,
 				039DBCCC21E6371900D5B22B /* SignUpViewController.swift in Sources */,
 				03A5BA5721E78C5800DA26FB /* NewStopViewController.swift in Sources */,
 				0376658621EE0EB800F6E2C0 /* AddFriendViewController.swift in Sources */,

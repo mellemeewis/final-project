@@ -104,6 +104,7 @@ class ChallengesUserViewController: UIViewController, UITableViewDelegate, UITab
     
     func configureCompletedChallengeCell(_ cell: ChooseChallengeTableViewCell, forItemAt indexPath: IndexPath) {
         cell.layer.cornerRadius = 20
+        cell.challengeProgressBar.transform = cell.challengeProgressBar.transform.scaledBy(x: 1, y: 20)
         guard SessionController.shared.completedChallengesIDsUser.count != 0 else {
             cell.challengeDescriptionLabel.text =  "You have no completed challenges yet."
             completedChallengesTableView.allowsSelection = false
@@ -111,6 +112,7 @@ class ChallengesUserViewController: UIViewController, UITableViewDelegate, UITab
             cell.createdByLabel.text = ""
             cell.creationDateLabel.text = ""
             cell.weeksLabel.text = ""
+            cell.challengeProgressBar.setProgress(0, animated: false)
             return
         }
         completedChallengesTableView.allowsSelection = true
@@ -123,11 +125,10 @@ class ChallengesUserViewController: UIViewController, UITableViewDelegate, UITab
         cell.createdByLabel.text = "Created By: \(challenge.createdBy)"
         cell.creationDateLabel.text = "Started on: \(startDate!)"
         cell.weeksLabel.text = "Completed on: \(goalDate!)"
-        cell.backgroundColor = UIColor.darkGray
+        cell.challengeProgressBar.setProgress(1, animated: false)
+
     }
 
-
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()

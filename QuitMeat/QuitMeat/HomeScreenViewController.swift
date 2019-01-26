@@ -37,10 +37,8 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             return SessionController.shared.events.count
         case challengeInfoTableView:
             if SessionController.shared.currentChallengesIDsUser.count == 0 {
-                print("EROOR")
                 return 1
             }
-            print("NOICE")
             return SessionController.shared.currentChallengesIDsUser.count
         default:
             return 0
@@ -101,7 +99,6 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell.textLabel?.text = "Press here to find challenges!"
                 return cell
             }
-            print("CHAL")
 
             let orderdChallenges = SessionController.shared.currentChallengesIDsUser.sorted(by: { $0.value.goalDate > $1.value.goalDate })
             print(orderdChallenges)
@@ -211,13 +208,15 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         ref.child(childPath).observeSingleEvent(of: .value) {
             (snapshot) in
             guard let data = snapshot.value as? [String:Any] else { return }
+            var stoppedItems = [String:StoppedItem]()
             for (key, value) in (data) {
                 let stoppingData = value as! Dictionary<String, Any>
                 let stoppedItem = StoppedItem(days: stoppingData["days"] as! Int, stopDate: stoppingData["date"] as! String)
-                SessionController.shared.stoppedItemsUser[key] = stoppedItem
-                self.updateUI(for: "userStoppingInfo")
-                self.fetchProductTypes()
+                stoppedItems[key] = stoppedItem
             }
+            SessionController.shared.stoppedItemsUser = stoppedItems
+            self.updateUI(for: "userStoppingInfo")
+            self.fetchProductTypes()
         }
     }
     
