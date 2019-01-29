@@ -23,8 +23,8 @@
 		0376F29E21F8913D00987F9D /* ChooseChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376F29D21F8913D00987F9D /* ChooseChallengeTableViewCell.swift */; };
 		0376F2A021F8949D00987F9D /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376F29F21F8949D00987F9D /* Challenge.swift */; };
 		0376F2A221F8A9AB00987F9D /* SingleChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376F2A121F8A9AB00987F9D /* SingleChallengeViewController.swift */; };
+		037B5B8321FF6F5F006A5DFF /* SingleFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037B5B8221FF6F5F006A5DFF /* SingleFriendViewController.swift */; };
 		039DBCB621E615C000D5B22B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DBCB521E615C000D5B22B /* AppDelegate.swift */; };
-		039DBCB821E615C000D5B22B /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DBCB721E615C000D5B22B /* InitialViewController.swift */; };
 		039DBCBB21E615C000D5B22B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039DBCB921E615C000D5B22B /* Main.storyboard */; };
 		039DBCBD21E615C300D5B22B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 039DBCBC21E615C300D5B22B /* Assets.xcassets */; };
 		039DBCC021E615C300D5B22B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039DBCBE21E615C300D5B22B /* LaunchScreen.storyboard */; };
@@ -60,9 +60,9 @@
 		0376F29D21F8913D00987F9D /* ChooseChallengeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseChallengeTableViewCell.swift; sourceTree = "<group>"; };
 		0376F29F21F8949D00987F9D /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		0376F2A121F8A9AB00987F9D /* SingleChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleChallengeViewController.swift; sourceTree = "<group>"; };
+		037B5B8221FF6F5F006A5DFF /* SingleFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleFriendViewController.swift; sourceTree = "<group>"; };
 		039DBCB221E615C000D5B22B /* QuitMeat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitMeat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		039DBCB521E615C000D5B22B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		039DBCB721E615C000D5B22B /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		039DBCBA21E615C000D5B22B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		039DBCBC21E615C300D5B22B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		039DBCBF21E615C300D5B22B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,6 +96,106 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		037B5B842200645F006A5DFF /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				03A5BA5821E790D400DA26FB /* ProductType.swift */,
+				0376657B21E8E17900F6E2C0 /* stoppedItem.swift */,
+				0376658721EE18EB00F6E2C0 /* User.swift */,
+				03CEF32421EF539800B80F6B /* Event.swift */,
+				0367051021FCBCB3008B0993 /* StopDetail.swift */,
+				0376F29F21F8949D00987F9D /* Challenge.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		037B5B852200B77A006A5DFF /* Custom UITableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				03CEF31A21EE31FE00B80F6B /* SearchUserTableViewCell.swift */,
+				03CEF31E21EF415F00B80F6B /* FriendInfoTableViewCell.swift */,
+				03CEF32221EF520200B80F6B /* EventTableViewCell.swift */,
+				0376F29D21F8913D00987F9D /* ChooseChallengeTableViewCell.swift */,
+				0367050C21FCB5E0008B0993 /* DetailsTableViewCell.swift */,
+			);
+			path = "Custom UITableViewCells";
+			sourceTree = "<group>";
+		};
+		037B5B862200B7C4006A5DFF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */,
+				037B5B8A2200B90C006A5DFF /* User Stops Environment */,
+				037B5B892200B8D1006A5DFF /* Challenges Environment */,
+				037B5B882200B8AC006A5DFF /* Social Environment */,
+				037B5B872200B86E006A5DFF /* Authentication Environment */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		037B5B872200B86E006A5DFF /* Authentication Environment */ = {
+			isa = PBXGroup;
+			children = (
+				039DBCC921E62A1500D5B22B /* LogInViewController.swift */,
+				039DBCCB21E6371900D5B22B /* SignUpViewController.swift */,
+				039DBCC721E6187D00D5B22B /* MenuViewController.swift */,
+			);
+			path = "Authentication Environment";
+			sourceTree = "<group>";
+		};
+		037B5B882200B8AC006A5DFF /* Social Environment */ = {
+			isa = PBXGroup;
+			children = (
+				0376657F21EDF1C900F6E2C0 /* MainSocialViewController.swift */,
+				0376658121EDF2DA00F6E2C0 /* SocialEventsViewController.swift */,
+				0376658521EE0EB800F6E2C0 /* AddFriendViewController.swift */,
+				0376658321EDF2EB00F6E2C0 /* SocialFriendsViewController.swift */,
+				037B5B8221FF6F5F006A5DFF /* SingleFriendViewController.swift */,
+			);
+			path = "Social Environment";
+			sourceTree = "<group>";
+		};
+		037B5B892200B8D1006A5DFF /* Challenges Environment */ = {
+			isa = PBXGroup;
+			children = (
+				0376F29521F8816800987F9D /* MainChallengesViewController.swift */,
+				0376F29721F8823400987F9D /* ChallengesUserViewController.swift */,
+				0376F29921F8827100987F9D /* ChooceChallengeViewController.swift */,
+				0376F29121F755E900987F9D /* NewChallengeViewController.swift */,
+				0376F2A121F8A9AB00987F9D /* SingleChallengeViewController.swift */,
+			);
+			path = "Challenges Environment";
+			sourceTree = "<group>";
+		};
+		037B5B8A2200B90C006A5DFF /* User Stops Environment */ = {
+			isa = PBXGroup;
+			children = (
+				03A5BA5421E78B8600DA26FB /* DetailStoppingInformationViewController.swift */,
+				03A5BA5621E78C5800DA26FB /* NewStopViewController.swift */,
+			);
+			path = "User Stops Environment";
+			sourceTree = "<group>";
+		};
+		037B5B8B2200B94F006A5DFF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				039DBCB521E615C000D5B22B /* AppDelegate.swift */,
+				03A5BA5221E782A900DA26FB /* SessionController.swift */,
+				037B5B862200B7C4006A5DFF /* View Controllers */,
+				037B5B852200B77A006A5DFF /* Custom UITableViewCells */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		037B5B8C2200B9D2006A5DFF /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				037B5B8B2200B94F006A5DFF /* Classes */,
+				037B5B842200645F006A5DFF /* Structs */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
 		039DBCA921E615C000D5B22B = {
 			isa = PBXGroup;
 			children = (
@@ -117,36 +217,8 @@
 		039DBCB421E615C000D5B22B /* QuitMeat */ = {
 			isa = PBXGroup;
 			children = (
-				039DBCB521E615C000D5B22B /* AppDelegate.swift */,
-				039DBCB721E615C000D5B22B /* InitialViewController.swift */,
-				039DBCC721E6187D00D5B22B /* MenuViewController.swift */,
-				03A5BA5221E782A900DA26FB /* SessionController.swift */,
-				03A5BA5821E790D400DA26FB /* ProductType.swift */,
-				0376657B21E8E17900F6E2C0 /* stoppedItem.swift */,
-				039DBCC921E62A1500D5B22B /* LogInViewController.swift */,
-				039DBCCB21E6371900D5B22B /* SignUpViewController.swift */,
-				0376658721EE18EB00F6E2C0 /* User.swift */,
-				03CEF32421EF539800B80F6B /* Event.swift */,
-				0367051021FCBCB3008B0993 /* StopDetail.swift */,
-				0376F29F21F8949D00987F9D /* Challenge.swift */,
-				030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */,
-				0376658521EE0EB800F6E2C0 /* AddFriendViewController.swift */,
-				03CEF31A21EE31FE00B80F6B /* SearchUserTableViewCell.swift */,
-				03CEF31E21EF415F00B80F6B /* FriendInfoTableViewCell.swift */,
-				0376657F21EDF1C900F6E2C0 /* MainSocialViewController.swift */,
-				0376658121EDF2DA00F6E2C0 /* SocialEventsViewController.swift */,
-				03CEF32221EF520200B80F6B /* EventTableViewCell.swift */,
-				0376F29D21F8913D00987F9D /* ChooseChallengeTableViewCell.swift */,
-				0367050C21FCB5E0008B0993 /* DetailsTableViewCell.swift */,
-				0376F29521F8816800987F9D /* MainChallengesViewController.swift */,
-				0376F29721F8823400987F9D /* ChallengesUserViewController.swift */,
-				0376F29921F8827100987F9D /* ChooceChallengeViewController.swift */,
-				0376F29121F755E900987F9D /* NewChallengeViewController.swift */,
-				0376F2A121F8A9AB00987F9D /* SingleChallengeViewController.swift */,
-				0376658321EDF2EB00F6E2C0 /* SocialFriendsViewController.swift */,
+				037B5B8C2200B9D2006A5DFF /* Code */,
 				039DBCB921E615C000D5B22B /* Main.storyboard */,
-				03A5BA5421E78B8600DA26FB /* DetailStoppingInformationViewController.swift */,
-				03A5BA5621E78C5800DA26FB /* NewStopViewController.swift */,
 				039DBCBC21E615C300D5B22B /* Assets.xcassets */,
 				039DBCBE21E615C300D5B22B /* LaunchScreen.storyboard */,
 				039DBCC121E615C300D5B22B /* Info.plist */,
@@ -326,8 +398,8 @@
 				0376F2A021F8949D00987F9D /* Challenge.swift in Sources */,
 				0376F29A21F8827100987F9D /* ChooceChallengeViewController.swift in Sources */,
 				039DBCCA21E62A1500D5B22B /* LogInViewController.swift in Sources */,
+				037B5B8321FF6F5F006A5DFF /* SingleFriendViewController.swift in Sources */,
 				0376658221EDF2DA00F6E2C0 /* SocialEventsViewController.swift in Sources */,
-				039DBCB821E615C000D5B22B /* InitialViewController.swift in Sources */,
 				0367050D21FCB5E0008B0993 /* DetailsTableViewCell.swift in Sources */,
 				0376F2A221F8A9AB00987F9D /* SingleChallengeViewController.swift in Sources */,
 				03CEF32521EF539800B80F6B /* Event.swift in Sources */,
