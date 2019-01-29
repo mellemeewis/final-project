@@ -75,7 +75,32 @@ class SingleChallengeViewController: UIViewController {
         titleLabel.text = challenge.name
         descriptionLabel.text = challenge.descirption
         createdLabel.text = "Created By \(challenge.createdBy) on \(challenge.creationDate)"
-        savingsLabel.text = "\(challenge.animalSavings) \(challenge.productType.capitalized)s\n\(challenge.waterSavings) liters of water\n\(challenge.co2Savings) KG of CO2"
+        
+        var animalsSavedString = ""
+        var co2SavedString = ""
+        var waterSavedString = ""
+        
+        // check if values in grams and liters are more than 1000 and transoform to KG or M3 if true
+        if challenge.animalSavings > 1000 {
+            let animalsSaved = Float(challenge.animalSavings) / 1000
+            animalsSavedString = "\(String(format: "%.1f", animalsSaved)) KG \(challenge.productType.capitalized)"
+        } else {
+            animalsSavedString = "\(challenge.animalSavings) Gram \(challenge.productType.capitalized)"
+        }
+        if challenge.co2Savings > 1000 {
+            let co2Saved = Float(challenge.co2Savings) / 1000
+            co2SavedString = "\(String(format: "%.1f", co2Saved)) KG CO2"
+        } else {
+            co2SavedString = "\(challenge.co2Savings) Gram CO2"
+        }
+        if challenge.waterSavings > 1000 {
+            let waterSaved = Float(challenge.waterSavings) / 1000
+            waterSavedString = "\(String(format: "%.1f", waterSaved)) m3 Water"
+        } else {
+            waterSavedString = "\(challenge.waterSavings) liter Water"
+        }
+    
+        savingsLabel.text = "\(animalsSavedString)\n\(co2SavedString)\n\(waterSavedString)"
         
         // check if challenges is new, current, or completed for user
         if challengeType == "newChallenge" {

@@ -1782,7 +1782,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtO-VW-c63">
-                                                    <rect key="frame" x="90.5" y="12.5" width="57" height="18.5"/>
+                                                    <rect key="frame" x="81" y="12.5" width="57" height="18.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="57" id="ahz-i0-ABk"/>
                                                     </constraints>
@@ -1791,16 +1791,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CO2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1N-5g-XMd">
-                                                    <rect key="frame" x="157.5" y="12.5" width="45" height="18.5"/>
+                                                    <rect key="frame" x="148" y="12.5" width="50" height="18.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="45" id="iQ0-TF-CT1"/>
+                                                        <constraint firstAttribute="width" constant="50" id="iQ0-TF-CT1"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ii-bU-sEa">
-                                                    <rect key="frame" x="212.5" y="12.5" width="45.5" height="18.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ii-bU-sEa">
+                                                    <rect key="frame" x="208" y="12.5" width="50" height="18.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="4g3-R5-k5Q"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1827,13 +1830,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKa-M6-Rdh">
-                                                    <rect key="frame" x="15" y="12.5" width="64.5" height="18.5"/>
+                                                    <rect key="frame" x="15" y="12.5" width="55" height="18.5"/>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tj0-iJ-ubX">
-                                                    <rect key="frame" x="89.5" y="12.5" width="57" height="18.5"/>
+                                                    <rect key="frame" x="80" y="12.5" width="57" height="18.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="57" id="5Ct-mY-Tnk"/>
                                                     </constraints>
@@ -1842,18 +1845,18 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nl-lo-2Ig">
-                                                    <rect key="frame" x="156.5" y="12.5" width="45" height="18.5"/>
+                                                    <rect key="frame" x="147" y="12.5" width="50" height="18.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="45" id="R3s-Eg-3dU"/>
+                                                        <constraint firstAttribute="width" constant="50" id="R3s-Eg-3dU"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98Q-yN-1Uz">
-                                                    <rect key="frame" x="211.5" y="12.5" width="45.5" height="18.5"/>
+                                                    <rect key="frame" x="207" y="12.5" width="50" height="18.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="45.5" id="Std-nh-EDf"/>
+                                                        <constraint firstAttribute="width" constant="50" id="Std-nh-EDf"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -2154,7 +2157,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdW-KQ-IwZ">
-                                                    <rect key="frame" x="105.5" y="12.5" width="57" height="18.5"/>
+                                                    <rect key="frame" x="96" y="12.5" width="57" height="18.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="57" id="yq0-gd-Vcm"/>
                                                     </constraints>
@@ -2162,17 +2165,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CO2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTY-CD-Tff">
-                                                    <rect key="frame" x="172.5" y="12.5" width="45" height="18.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CO2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTY-CD-Tff">
+                                                    <rect key="frame" x="163" y="12.5" width="50" height="18.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="45" id="jrk-Bq-0tz"/>
+                                                        <constraint firstAttribute="width" constant="50" id="jrk-Bq-0tz"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clC-y4-aEU">
-                                                    <rect key="frame" x="227.5" y="12.5" width="45.5" height="18.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clC-y4-aEU">
+                                                    <rect key="frame" x="223" y="12.5" width="50" height="18.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="IRZ-RY-YQ5"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2199,13 +2205,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNU-bX-Air">
-                                                    <rect key="frame" x="15" y="12.5" width="80.5" height="18.5"/>
+                                                    <rect key="frame" x="15" y="12.5" width="71" height="18.5"/>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRl-DA-9WC">
-                                                    <rect key="frame" x="105.5" y="12.5" width="57" height="18.5"/>
+                                                    <rect key="frame" x="96" y="12.5" width="57" height="18.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="57" id="I5P-8Z-bDh"/>
                                                     </constraints>
@@ -2214,18 +2220,18 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56i-OM-h60">
-                                                    <rect key="frame" x="172.5" y="12.5" width="45" height="18.5"/>
+                                                    <rect key="frame" x="163" y="12.5" width="50" height="18.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="45" id="YZO-gQ-NHd"/>
+                                                        <constraint firstAttribute="width" constant="50" id="YZO-gQ-NHd"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8b-aG-qFg">
-                                                    <rect key="frame" x="227.5" y="12.5" width="45.5" height="18.5"/>
+                                                    <rect key="frame" x="223" y="12.5" width="50" height="18.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="45.5" id="cLj-XS-M1e"/>
+                                                        <constraint firstAttribute="width" constant="50" id="cLj-XS-M1e"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                                     <nil key="textColor"/>

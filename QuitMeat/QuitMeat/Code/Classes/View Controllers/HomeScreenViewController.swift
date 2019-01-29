@@ -105,15 +105,37 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         case savingInfoTableView:
             cell = tableView.dequeueReusableCell(withIdentifier: "SavingInfoCell", for: indexPath)
             switch indexPath.row {
+            // check if values in grams and liters are more than 1000 and transoform to KG or M3 if true
             case 0:
                 cell.textLabel?.text = "Animals"
-                cell.detailTextLabel?.text = "\(String(SessionController.shared.animalsSavedUser)) Gram"
+                var animalsSavedString = ""
+                if SessionController.shared.animalsSavedUser > 1000 {
+                    let animalsSaved = Float(SessionController.shared.animalsSavedUser) / 1000
+                    animalsSavedString = "\(String(format: "%.1f", animalsSaved)) KG"
+                } else {
+                    animalsSavedString = "\(SessionController.shared.animalsSavedUser) Gram"
+                }
+                cell.detailTextLabel?.text = animalsSavedString
             case 1:
                 cell.textLabel?.text = "CO2"
-                cell.detailTextLabel?.text = "\(String(SessionController.shared.co2savedUser)) Gram"
+                var co2SavedString = ""
+                if SessionController.shared.co2savedUser > 1000 {
+                    let co2Saved = Float(SessionController.shared.co2savedUser) / 1000
+                    co2SavedString = "\(String(format: "%.1f", co2Saved)) KG"
+                } else {
+                    co2SavedString = "\(SessionController.shared.co2savedUser) Gram"
+                }
+                cell.detailTextLabel?.text = co2SavedString
             case 2:
                 cell.textLabel?.text = "Water"
-                cell.detailTextLabel?.text = "\(String(SessionController.shared.waterSavedUser)) Liter"
+                var waterSavedString = ""
+                if SessionController.shared.waterSavedUser > 1000 {
+                    let waterSaved = Float(SessionController.shared.waterSavedUser) / 1000
+                    waterSavedString = "\(String(format: "%.1f", waterSaved)) m3"
+                } else {
+                    waterSavedString = "\(SessionController.shared.waterSavedUser) Liter"
+                }
+                cell.detailTextLabel?.text = waterSavedString
             default:
                 return cell
             }

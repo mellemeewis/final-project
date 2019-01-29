@@ -83,9 +83,34 @@ class SingleFriendViewController: UIViewController, UITableViewDelegate, UITable
                     let stopDetail = stopDetails[(indexPath.row - 2)/2]
                     cell.descriptionLabel.text = stopDetail.description
                     let productType = stopDetail.description.components(separatedBy: " ")[2]
-                    cell.animalLabel.text = "\(String(stopDetail.animalsSaved))G \(productType)"
-                    cell.co2Label.text = "\(String(stopDetail.co2saved))G CO2"
-                    cell.waterLabel.text = "\(String(stopDetail.waterSaved))L Water"
+                    
+                    var animalsSavedString = ""
+                    var co2SavedString = ""
+                    var waterSavedString = ""
+                    
+                    // check if values in grams and liters are more than 1000 and transoform to KG or M3 if true
+                    if stopDetail.animalsSaved > 1000 {
+                        let animalsSaved = Float(stopDetail.animalsSaved) / 1000
+                        animalsSavedString = "\(String(format: "%.1f", animalsSaved))kg \(productType)"
+                    } else {
+                        animalsSavedString = "\(stopDetail.animalsSaved)g \(productType)"
+                    }
+                    if stopDetail.co2saved > 1000 {
+                        let co2Saved = Float(stopDetail.co2saved) / 1000
+                        co2SavedString = "\(String(format: "%.1f", co2Saved))kg CO2"
+                    } else {
+                        co2SavedString = "\(stopDetail.co2saved)g CO2"
+                    }
+                    if stopDetail.waterSaved > 1000 {
+                        let waterSaved = Float(stopDetail.waterSaved) / 1000
+                        waterSavedString = "\(String(format: "%.1f", waterSaved))m3 Water"
+                    } else {
+                        waterSavedString = "\(stopDetail.waterSaved)l Water"
+                    }
+                    
+                    cell.animalLabel.text = animalsSavedString
+                    cell.co2Label.text = co2SavedString
+                    cell.waterLabel.text = waterSavedString
                 }
             }
             cell.selectionStyle = .none
@@ -117,9 +142,33 @@ class SingleFriendViewController: UIViewController, UITableViewDelegate, UITable
                 let friend = friends[indexPath.row - 1]
                 cell.textLabel?.text = ""
                 cell.nameLabel.text = friend.name
-                cell.animalLabel.text = String(friend.animalsSaved)
-                cell.co2Label.text = String(friend.co2Saved)
-                cell.waterLabel.text = String(friend.waterSaved)
+                
+                var animalsSavedString = ""
+                var co2SavedString = ""
+                var waterSavedString = ""
+                
+                // check if values in grams and liters are more than 1000 and transoform to KG or M3 if true
+                if friend.animalsSaved > 1000 {
+                    let animalsSaved = Float(friend.animalsSaved) / 1000
+                    animalsSavedString = "\(String(format: "%.1f", animalsSaved))kg"
+                } else {
+                    animalsSavedString = "\(friend.animalsSaved)g"
+                }
+                if friend.co2Saved > 1000 {
+                    let co2Saved = Float(friend.co2Saved) / 1000
+                    co2SavedString = "\(String(format: "%.1f", co2Saved))kg"
+                } else {
+                    co2SavedString = "\(friend.co2Saved)g"
+                }
+                if friend.waterSaved > 1000 {
+                    let waterSaved = Float(friend.waterSaved) / 1000
+                    waterSavedString = "\(String(format: "%.1f", waterSaved))m3"
+                } else {
+                    waterSavedString = "\(friend.waterSaved)l"
+                }
+                cell.animalLabel.text = animalsSavedString
+                cell.co2Label.text = co2SavedString
+                cell.waterLabel.text = waterSavedString
                 cell.backgroundColor = .clear
                 cell.selectionStyle = .none
                 return cell
@@ -157,12 +206,39 @@ class SingleFriendViewController: UIViewController, UITableViewDelegate, UITable
     /// update user interface
     func updateUI() {
         nameLabel.text = friend.name
-        animalLabel.text = "\(friend.animalsSaved)G Animals "
-        co2Label.text = "\(friend.co2Saved)G CO2"
-        waterLabel.text = "\(friend.waterSaved)L Water"
+        
+        
+        var animalsSavedString = ""
+        var co2SavedString = ""
+        var waterSavedString = ""
+        
+        // check if values in grams and liters are more than 1000 and transoform to KG or M3 if true
+        if friend.animalsSaved > 1000 {
+            let animalsSaved = Float(friend.animalsSaved) / 1000
+            animalsSavedString = "\(String(format: "%.1f", animalsSaved))kg Animals"
+        } else {
+            animalsSavedString = "\(friend.animalsSaved)g Animals"
+        }
+        if friend.co2Saved > 1000 {
+            let co2Saved = Float(friend.co2Saved) / 1000
+            co2SavedString = "\(String(format: "%.1f", co2Saved))kg CO2"
+        } else {
+            co2SavedString = "\(friend.co2Saved)g CO2"
+        }
+        if friend.waterSaved > 1000 {
+            let waterSaved = Float(friend.waterSaved) / 1000
+            waterSavedString = "\(String(format: "%.1f", waterSaved))m3 Water"
+        } else {
+            waterSavedString = "\(friend.waterSaved)l Water"
+        }
+        
+        animalLabel.text = animalsSavedString
+        co2Label.text = co2SavedString
+        waterLabel.text = waterSavedString
     }
+
     
-    /// create detaild inforbation about stopped product types users
+    /// create detailed inforbation about stopped product types users
     func createStopDetails() {
         // check if user has any stopped items
         guard friend.stoppedItems.count != 0 else {

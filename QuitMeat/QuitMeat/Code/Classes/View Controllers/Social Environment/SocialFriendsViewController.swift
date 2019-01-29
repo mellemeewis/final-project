@@ -46,9 +46,33 @@ class SocialFriendsViewController: UIViewController, UITableViewDataSource, UITa
     func configure(_ cell: FriendInfoTableViewCell, forItemAt indexPath: IndexPath) {
         let friend = friends[indexPath.row - 1]
         cell.nameLabel.text = friend.name
-        cell.animalLabel.text = String(friend.animalsSaved)
-        cell.co2Label.text = String(friend.co2Saved)
-        cell.waterLabel.text = String(friend.waterSaved)
+        
+        var animalsSavedString = ""
+        var co2SavedString = ""
+        var waterSavedString = ""
+        
+        // check if values in grams and liters are more than 1000 and transoform to KG or M3 if true
+        if friend.animalsSaved > 1000 {
+            let animalsSaved = Float(friend.animalsSaved) / 1000
+            animalsSavedString = "\(String(format: "%.1f", animalsSaved))kg"
+        } else {
+            animalsSavedString = "\(friend.animalsSaved)g"
+        }
+        if friend.co2Saved > 1000 {
+            let co2Saved = Float(friend.co2Saved) / 1000
+            co2SavedString = "\(String(format: "%.1f", co2Saved))kg"
+        } else {
+            co2SavedString = "\(friend.co2Saved)g"
+        }
+        if friend.waterSaved > 1000 {
+            let waterSaved = Float(friend.waterSaved) / 1000
+            waterSavedString = "\(String(format: "%.1f", waterSaved))m3"
+        } else {
+            waterSavedString = "\(friend.waterSaved)l"
+        }
+        cell.animalLabel.text = animalsSavedString
+        cell.co2Label.text = co2SavedString
+        cell.waterLabel.text = waterSavedString
         cell.backgroundColor = .clear
     }
     

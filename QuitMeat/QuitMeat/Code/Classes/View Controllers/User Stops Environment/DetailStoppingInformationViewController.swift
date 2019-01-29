@@ -21,7 +21,7 @@ class DetailStoppingInformationViewController: UIViewController, UITableViewDele
     @IBOutlet weak var co2Label: UILabel!
     @IBOutlet weak var animalLabel: UILabel!
     @IBOutlet weak var detailsTableView: UITableView!
-    @IBOutlet weak var stoppingLabel: UILabel!
+//    @IBOutlet weak var stoppingLabel: UILabel!
     
     /// return number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,9 +61,35 @@ class DetailStoppingInformationViewController: UIViewController, UITableViewDele
                 let stopDetail = stopDetails[(indexPath.row - 2)/2]
                 cell.descriptionLabel.text = stopDetail.description
                 let productType = stopDetail.description.components(separatedBy: " ")[2]
-                cell.animalLabel.text = "\(String(stopDetail.animalsSaved))G \(productType)"
-                cell.co2Label.text = "\(String(stopDetail.co2saved))G CO2"
-                cell.waterLabel.text = "\(String(stopDetail.waterSaved))L Water"
+                
+                var animalsSavedString = ""
+                var co2SavedString = ""
+                var waterSavedString = ""
+                
+                // check if values in grams and liters are more than 1000 and transoform to KG or M3 if true
+                if stopDetail.animalsSaved > 1000 {
+                    let animalsSaved = Float(stopDetail.animalsSaved) / 1000
+                    animalsSavedString = "\(String(format: "%.1f", animalsSaved))kg \(productType)"
+                } else {
+                    animalsSavedString = "\(stopDetail.animalsSaved)g \(productType)"
+                }
+                if stopDetail.co2saved > 1000 {
+                    let co2Saved = Float(stopDetail.co2saved) / 1000
+                    co2SavedString = "\(String(format: "%.1f", co2Saved))kg CO2"
+                } else {
+                    co2SavedString = "\(stopDetail.co2saved)g CO2"
+                }
+                if stopDetail.waterSaved > 1000 {
+                    let waterSaved = Float(stopDetail.waterSaved) / 1000
+                    waterSavedString = "\(String(format: "%.1f", waterSaved))m3 Water"
+                } else {
+                    waterSavedString = "\(stopDetail.waterSaved)l Water"
+                }
+
+                cell.animalLabel.text = animalsSavedString
+                cell.co2Label.text = co2SavedString
+                cell.waterLabel.text = waterSavedString
+                
                 cell.selectionStyle = .none
             }
             
@@ -120,9 +146,33 @@ class DetailStoppingInformationViewController: UIViewController, UITableViewDele
     // update user interface
     func updateUI() {
         createStopDetails()
-        animalLabel.text = "\(String(SessionController.shared.animalsSavedUser)) Gram Animals"
-        co2Label.text = "\(String(SessionController.shared.co2savedUser)) Gram CO2"
-        waterLabel.text = "\(String(SessionController.shared.waterSavedUser)) L Water"
+        var animalsSavedString = ""
+        var co2SavedString = ""
+        var waterSavedString = ""
+
+        // check if values in grams and liters are more than 1000 and transoform to KG or M3 if true
+        if SessionController.shared.animalsSavedUser > 1000 {
+            let animalsSaved = Float(SessionController.shared.animalsSavedUser) / 1000
+            animalsSavedString = "\(String(format: "%.1f", animalsSaved))kg Animals"
+        } else {
+            animalsSavedString = "\(SessionController.shared.animalsSavedUser)g Animals"
+        }
+        if SessionController.shared.co2savedUser > 1000 {
+            let co2Saved = Float(SessionController.shared.co2savedUser) / 1000
+            co2SavedString = "\(String(format: "%.1f", co2Saved))kg CO2"
+        } else {
+            co2SavedString = "\(SessionController.shared.co2savedUser)g CO2"
+        }
+        if SessionController.shared.waterSavedUser > 1000 {
+            let waterSaved = Float(SessionController.shared.waterSavedUser) / 1000
+            waterSavedString = "\(String(format: "%.1f", waterSaved))m3 Water"
+        } else {
+            waterSavedString = "\(SessionController.shared.waterSavedUser)l Water"
+        }
+        
+        animalLabel.text = animalsSavedString
+        co2Label.text = co2SavedString
+        waterLabel.text = waterSavedString
         detailsTableView.reloadData()
     }
     

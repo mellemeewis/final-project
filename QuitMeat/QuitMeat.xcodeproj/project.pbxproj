@@ -126,8 +126,8 @@
 			children = (
 				030B424E21E6519E00FF4921 /* HomeScreenViewController.swift */,
 				037B5B8A2200B90C006A5DFF /* User Stops Environment */,
-				037B5B892200B8D1006A5DFF /* Challenges Environment */,
 				037B5B882200B8AC006A5DFF /* Social Environment */,
+				037B5B892200B8D1006A5DFF /* Challenges Environment */,
 				037B5B872200B86E006A5DFF /* Authentication Environment */,
 			);
 			path = "View Controllers";
