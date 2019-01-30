@@ -4,3 +4,4 @@ Minor Programmeren - Final Project - IOS
 30-01-2019
 
 ## Purpose
+The purpose of this applicationn is to help users consume less meat.
