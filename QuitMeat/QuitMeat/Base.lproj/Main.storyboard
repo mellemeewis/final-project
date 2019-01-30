@@ -1489,7 +1489,7 @@
                         <outlet property="co2Label" destination="U2z-IP-bER" id="Tif-Iv-TDK"/>
                         <outlet property="detailsTableView" destination="0Oh-5z-maR" id="3ti-pd-h00"/>
                         <outlet property="waterLabel" destination="G8i-m4-rwx" id="HH0-xX-Wbd"/>
-                        <segue destination="lbb-q4-j9F" kind="show" identifier="ToChallengesSegue" id="Ahs-or-gaW"/>
+                        <segue destination="NFU-wt-17r" kind="show" identifier="ToChallengesSegue" id="mzq-dN-MDg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwR-gb-xlS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2421,5 +2421,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="DU4-PL-IG7"/>
+        <segue reference="mzq-dN-MDg"/>
     </inferredMetricsTieBreakers>
 </document>

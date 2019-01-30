@@ -247,7 +247,7 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         let childPath = "users/\(userID)/stopped"
         ref.child(childPath).observeSingleEvent(of: .value) {
             (snapshot) in
-            guard let data = snapshot.value as? [String:Any] else { return }
+            guard let data = snapshot.value as? [String:Any] else { self.fetchProductTypes(); return }
             var stoppedItems = [String:StoppedItem]()
             for (key, value) in (data) {
                 let stoppingData = value as! Dictionary<String, Any>

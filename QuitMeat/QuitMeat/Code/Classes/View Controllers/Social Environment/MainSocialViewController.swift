@@ -53,7 +53,7 @@ class MainSocialViewController: UIPageViewController, UIPageViewControllerDataSo
     
     // Configure the page indicator
     func configurePageControl() {
-        pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 50,width: UIScreen.main.bounds.width,height: 50))
+        pageControl = UIPageControl(frame: CGRect(x: UIScreen.main.bounds.width / 2,y: UIScreen.main.bounds.maxY - 20,width: 0,height: 0))
         self.pageControl.numberOfPages = viewControllerList.count
         self.pageControl.currentPage = 0
         self.pageControl.tintColor = UIColor.black
