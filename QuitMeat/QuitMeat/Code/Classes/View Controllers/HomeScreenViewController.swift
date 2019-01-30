@@ -161,7 +161,6 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             
             // Configure cells ChallengeInfo tableView
         case challengeInfoTableView:
-            print(SessionController.shared.currentChallengesIDsUser.count)
             cell = tableView.dequeueReusableCell(withIdentifier: "ChallengeInfoCell", for: indexPath)
             guard SessionController.shared.currentChallengesIDsUser.count != 0 else {
                 cell.textLabel?.text = "Press here to find challenges!"
@@ -377,8 +376,6 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             SessionController.shared.currentChallengesObjectsUser = currentChallenges
             SessionController.shared.completedChallengesObjectsUser = completedChallenges
-            print(SessionController.shared.currentChallengesObjectsUser)
-            print(SessionController.shared.completedChallengesObjectsUser)
             self.updateUI(for: "challengesInfo")
             self.updateUI(for: "userSavedInfo")
         })

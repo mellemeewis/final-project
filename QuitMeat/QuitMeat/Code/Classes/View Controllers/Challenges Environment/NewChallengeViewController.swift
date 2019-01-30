@@ -138,7 +138,6 @@ class NewChallengeViewController: UIViewController, UIPickerViewDelegate, UIPick
         let eventDescription = "\(name) created a new challenge to stop eating \(selectedProductType) on \(dateAsString)!"
         let challengeKey = ref.childByAutoId().key
         let childupdates = ["/challenges/\(userID)/\(challengeKey!)": ["days": selectedDaysAWeek, "description": description, "weeks": selectedWeeks, "name": challengeName, "productType": selectedProductType, "createdBy": name, "creationDate": dateAsString], "/events/\(userID)/\(eventDate)": eventDescription] as [String : Any]
-        print(childupdates)
         ref.updateChildValues(childupdates) { (error: Error?, ref: DatabaseReference) in
             if error == nil {
                 self.dismiss(animated: false)

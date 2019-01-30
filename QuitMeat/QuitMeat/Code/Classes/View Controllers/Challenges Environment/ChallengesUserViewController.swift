@@ -185,7 +185,6 @@ class ChallengesUserViewController: UIViewController, UITableViewDelegate, UITab
                 dateFormatter.dateStyle = .short
                 let currentDate = Date()
                 let goalDate = dateFormatter.date(from: goalDateAsString)
-                print(goalDate! < currentDate)
                 
                 // check if current challenges is past goal date and should move to completed
                 if goalDate! < currentDate {

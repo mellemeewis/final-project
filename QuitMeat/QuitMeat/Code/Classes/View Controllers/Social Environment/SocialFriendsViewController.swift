@@ -105,9 +105,7 @@ class SocialFriendsViewController: UIViewController, UITableViewDataSource, UITa
                     var stopsFriend = [String:StoppedItem]()
                     if let stoppedData = friendData["stopped"] as? [String:Any] {
                         for (key, value) in stoppedData {
-                            print(value)
                             if let stoppedItemData = value as? [String:Any] {
-                                print(stoppedItemData)
                                 let days = stoppedItemData["days"] as! Int
                                 let stopDate = stoppedItemData["date"] as! String
                                 let stoppedItemFriend = StoppedItem(days: days, stopDate: stopDate)

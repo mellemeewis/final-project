@@ -110,7 +110,6 @@ class DetailStoppingInformationViewController: UIViewController, UITableViewDele
     
     /// handle selection row in table view
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
         if indexPath.row == 0 {
             self.performSegue(withIdentifier: "ToChallengesSegue", sender: nil)
         }
@@ -205,6 +204,5 @@ class DetailStoppingInformationViewController: UIViewController, UITableViewDele
             stopDetails.append(stopDetail)
         }
         self.stopDetails = stopDetails.sorted(by: { $0.animalsSaved > $1.animalsSaved })
-        print(self.stopDetails)
     }
 }

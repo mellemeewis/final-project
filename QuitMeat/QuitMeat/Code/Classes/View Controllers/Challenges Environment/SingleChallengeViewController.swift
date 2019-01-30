@@ -153,7 +153,6 @@ class SingleChallengeViewController: UIViewController {
         let challengeID = challenge.ID
         let eventDescription = "\(name) accepted the challenge '\(challengeName)!'"
         let childupdates = ["/users/\(userID)/currentChallenges/\(challengeID)":  [dateAndTimeAsString, goalDateAsString], "/events/\(userID)/\(dateAndTimeAsString)": eventDescription] as [String : Any]
-        print(childupdates)
         ref.updateChildValues(childupdates) { (error: Error?, ref: DatabaseReference) in
             self.dismiss(animated: false, completion: nil)
         }

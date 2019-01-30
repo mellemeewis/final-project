@@ -174,7 +174,6 @@ class ChooceChallengeViewController: UIViewController, UITableViewDataSource, UI
     func fetchChallenges() {
         ref.child("challenges").observeSingleEvent(of: .value, with: { snapshot in
             let userID = SessionController.shared.userID!
-            print(userID)
             guard let data = snapshot.value as? [String:Any] else { return }
             var challenges = [Challenge]()
             for (key, value) in data {

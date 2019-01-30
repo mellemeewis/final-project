@@ -42,7 +42,7 @@ class SignUpViewController: UIViewController {
     /// Sign up user
     func handleSignUp() {
         // Check if all field as filled in correctly.
-        guard let name = NameTextField.text?.capitalized else { print("HI");sendAlert(); return }
+        guard let name = NameTextField.text?.capitalized else { sendAlert(); return }
         if name.contains(" ") {
             let erroralert = UIAlertController(title: "Sign Up Failed", message: "Name Can Not Contain Spaces" , preferredStyle: .alert)
             let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -84,7 +84,6 @@ class SignUpViewController: UIViewController {
                 }
             } else {
                 guard let myError = error?.localizedDescription else { return }
-                print("hello")
                 let erroralert = UIAlertController(title: "Sign Up Failed", message: myError , preferredStyle: .alert)
                 let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
                 erroralert.addAction(okButton)

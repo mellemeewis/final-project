@@ -30,7 +30,25 @@ class NewStopViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         self.dismiss(animated: false, completion: nil)
     }
     
+    /// Check if user alreay stopped eatin.
     @IBAction func createButtonTapped(_ sender: UIButton) {
+        guard let selectedProductType = self.selectedProductType else { return }
+        if SessionController.shared.stoppedItemsUser.keys.contains(selectedProductType) {
+            let erroralert = UIAlertController(title: "You Already Stopped Eatin \(selectedProductType.capitalized)", message: "Are you sure you want to proceed? All previous data about \(selectedProductType) wil be overwritten." , preferredStyle: .alert)
+            let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let confirmButton = UIAlertAction(title: "Confirm", style: .default, handler: { action in
+                self.addStopToDatabase()
+            })
+            erroralert.addAction(confirmButton)
+            erroralert.addAction(cancelButton)
+            self.present(erroralert, animated: true, completion: nil)
+        } else {
+            addStopToDatabase()
+        }
+    }
+
+    /// Add new stop to database
+    func addStopToDatabase() {
         guard let userID = SessionController.shared.userID else { return }
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
