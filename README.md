@@ -1,4 +1,4 @@
-# QuitMeat &nbsp;&nbsp;&nbsp;&nbsp; ![icon](/docs/icon.png)
+# QuitMeat &nbsp;&nbsp;&nbsp;&nbsp; ![icon](/doc/icon.png)
 ## An IOS Application That Helps The User Consume Less Meat.
 Melle Meewis - 10814892  
 Minor Programmeren - Final Project - IOS  
