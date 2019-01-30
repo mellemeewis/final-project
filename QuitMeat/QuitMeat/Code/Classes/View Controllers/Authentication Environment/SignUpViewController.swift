@@ -41,13 +41,32 @@ class SignUpViewController: UIViewController {
     
     /// Sign up user
     func handleSignUp() {
-        guard let name = NameTextField.text?.capitalized else { return }
+        // Check if all field as filled in correctly.
+        guard let name = NameTextField.text?.capitalized else { print("HI");sendAlert(); return }
+        if name.contains(" ") {
+            let erroralert = UIAlertController(title: "Sign Up Failed", message: "Name Can Not Contain Spaces" , preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+            erroralert.addAction(okButton)
+            self.present(erroralert, animated: true, completion: nil)
+        }
         let nameAsLower = name.lowercased()
-        guard let email = EmailTextField.text else { return }
-        guard let password = PasswordTextField.text else { return }
-        guard let repeatedPassword = RepeatPasswordTextField.text else { return }
-        guard password == repeatedPassword else { return }
+        guard let email = EmailTextField.text else { sendAlert(); return }
+        if name == "" || email == "" {
+            sendAlert();
+            return
+        }
+        guard let password = PasswordTextField.text else { sendAlert(); return }
+        guard let repeatedPassword = RepeatPasswordTextField.text else { sendAlert(); return }
         
+        guard password == repeatedPassword else {
+            let erroralert = UIAlertController(title: "Sign Up Failed", message: "Passwords do not match." , preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+            erroralert.addAction(okButton)
+            self.present(erroralert, animated: true, completion: nil)
+            return
+        }
+        
+        // Sign Up User
         Auth.auth().createUser(withEmail: email, password: password) { user, error in
             if error == nil && user != nil {
                 if let userID = Auth.auth().currentUser?.uid {
@@ -63,7 +82,22 @@ class SignUpViewController: UIViewController {
                         }
                     }
                 }
+            } else {
+                guard let myError = error?.localizedDescription else { return }
+                print("hello")
+                let erroralert = UIAlertController(title: "Sign Up Failed", message: myError , preferredStyle: .alert)
+                let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+                erroralert.addAction(okButton)
+                self.present(erroralert, animated: true, completion: nil)
             }
         }
+    }
+    
+    /// Send alert to user
+    func sendAlert() {
+        let erroralert = UIAlertController(title: "Sign Up Failed", message: "Not all required fields are filled in." , preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+        erroralert.addAction(okButton)
+        self.present(erroralert, animated: true, completion: nil)
     }
 }

@@ -41,6 +41,12 @@ class LogInViewController: UIViewController {
             if error == nil && user != nil {
                 SessionController.shared.name = Auth.auth().currentUser?.displayName
                 self.dismiss(animated: false, completion: nil)
+            } else {
+                guard let myError = error?.localizedDescription else { return }
+                let erroralert = UIAlertController(title: "LogIn Failed", message: myError , preferredStyle: .alert)
+                let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+                erroralert.addAction(okButton)
+                self.present(erroralert, animated: true, completion: nil)
             }
         }
     }

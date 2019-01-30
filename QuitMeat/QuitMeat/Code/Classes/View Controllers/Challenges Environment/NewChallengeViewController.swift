@@ -120,7 +120,7 @@ class NewChallengeViewController: UIViewController, UIPickerViewDelegate, UIPick
         // check if input is valid
         guard let userID = SessionController.shared.userID else { return }
         guard let challengeName = nameTextField.text else { return }
-        guard challengeName != "" else { return }
+        guard challengeName != "" else { sendAlert(); return }
         guard let name = SessionController.shared.name else { return }
         guard let selectedProductType = self.selectedProductType else { return }
 
@@ -145,4 +145,14 @@ class NewChallengeViewController: UIViewController, UIPickerViewDelegate, UIPick
             }
         }
     }
+    
+    /// Send alert to user
+    func sendAlert() {
+        let erroralert = UIAlertController(title: "Creation Failed", message: "Challenge should have a name." , preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+        erroralert.addAction(okButton)
+        self.present(erroralert, animated: true, completion: nil)
+    }
+
+    
 }
