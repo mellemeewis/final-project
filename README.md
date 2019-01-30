@@ -24,4 +24,4 @@ The [logo](https://github.com/mellemeewis/final-project/blob/master/doc/icon.png
 Copyright © 2010 by Melle Meewis
 All rights reserved. Use of content must retain copyright notice.  
   
-See the [license](https://github.com/mellemeewis/final-project/blob/master/doc/icon.png) for more information.
+See the [license](https://github.com/mellemeewis/final-project/blob/master/LICENSE.md) for more information.
