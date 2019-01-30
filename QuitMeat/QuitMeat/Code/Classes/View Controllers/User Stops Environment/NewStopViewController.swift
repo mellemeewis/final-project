@@ -2,6 +2,8 @@
 //  NewStopViewController.swift
 //  QuitMeat
 //
+//  Controller of the New Stop View.
+//
 //  Created by Melle Meewis on 10/01/2019.
 //  Copyright © 2019 Melle Meewis. All rights reserved.
 //

@@ -2,6 +2,8 @@
 //  SingleFriendViewController.swift
 //  QuitMeat
 //
+//  Controller of the Single Friend View.
+//
 //  Created by Melle Meewis on 28/01/2019.
 //  Copyright © 2019 Melle Meewis. All rights reserved.
 //

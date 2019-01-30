@@ -3,7 +3,6 @@
 //  QuitMeat
 //
 //  Controller of the Add Friend View.
-
 //
 //  Created by Melle Meewis on 15/01/2019.
 //  Copyright © 2019 Melle Meewis. All rights reserved.

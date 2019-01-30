@@ -2,6 +2,8 @@
 //  DetailStoppingInformationViewController.swift
 //  QuitMeat
 //
+//  Controller of the User Details View.
+//
 //  Created by Melle Meewis on 10/01/2019.
 //  Copyright © 2019 Melle Meewis. All rights reserved.
 //
