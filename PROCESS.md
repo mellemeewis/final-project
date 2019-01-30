@@ -33,7 +33,7 @@ Finished the implementation of challenges. CHallenges can now be accepted, quite
 ### 28-01-2019
 Improved progress visualization challenges. Added feature to see details about friends.
 ### 29-01-2019
-Trouble Shotting
+Trouble shooting
 ### 30-01-2019
 Trouble shooting, finishing the project
 
