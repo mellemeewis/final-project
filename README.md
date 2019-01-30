@@ -1,7 +1,7 @@
 # QuitMeat &nbsp;&nbsp;&nbsp;&nbsp; <img src="/doc/icon.png" width="12%" height="12%"/>
 ## An IOS Application That Helps The User Consume Less Meat.
 Melle Meewis - 10814892  
-Minor Programmeren - Final Project - IOS  
+Minor Programmeren - Final Project - iOS  
 30-01-2019
 
 ## Purpose
