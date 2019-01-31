@@ -10,7 +10,7 @@ The below image is a visualization of the flow within the application. All the s
 <img src="/doc/WorkFlow.png"/>
 
 ### Data Structure
-Below, a diagram can be found which show the link between the relevant seperate screens and the datastructure used in the application. Not all screens are showed because noet all screens need acces to the data.
+Below, a diagram can be found which show the link between the relevant seperate screens and the datastructure used in the application.  
 <img src="/doc/DataStructureDiagram.png"/>
 
 Firebase Realtime Database is used for the storing of data and the authentication of users. The data on the database is structured in JSON format.
