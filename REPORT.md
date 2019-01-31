@@ -5,7 +5,7 @@ QuitMeat is an application that helps user consume less meat by giving insight a
 
 ## Design
 ### Work Flow
-The below image is a visualization of the flow within the application. All the screen and are presented, how they can be reached is indicated by arrows.  
+The below image is a visualization of the flow within the application. All the screen and are presented, the possible navigation between the views is indicated by the arrows.  
   
 <img src="/doc/WorkFlow.png"/>
 
