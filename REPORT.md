@@ -3,4 +3,4 @@
 ## Short Description
 
 ## Workflow
-<img src="/doc/WorkFlow.png""/>
+<img src="/doc/WorkFlow.png"/>
