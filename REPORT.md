@@ -1,4 +1,4 @@
-# Report QuitMeat
+# Report QuitMeat <img src="/doc/icon.png" width="12%" height="12%"/>
 
 ## Short Description
 QuitMeat is an application that helps user consume less meat by giving insight about the amount of water, co2 and animals they save by their reduced meat consumption. A social environments helps friend stimulate each other to reduces their meat consumption even further.
