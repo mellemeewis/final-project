@@ -20,6 +20,9 @@ During the production of this application, [Stackoverflow](https://stackoverflow
 
 The [logo](https://github.com/mellemeewis/final-project/blob/master/doc/icon.png) of this application was designed and created by Merk Marinus Hoeksma.
 
+## Walktrough Video
+A walktrough video which leads you trough the application can be found [here](https://www.youtube.com/watch?v=4SwBXzBfRMQ&feature=youtu.be)!
+
 ## Copyright Statement
 Copyright © 2010 by Melle Meewis
 All rights reserved. Use of content must retain copyright notice.  
