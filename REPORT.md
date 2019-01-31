@@ -9,4 +9,4 @@ The below image is a visualization of the flow within the application. All the s
 <img src="/doc/WorkFlow.png"/>
 
 Below, a diagram can be found which show the link between the seperate screens and the datastructure used in the application.
-<img src="/doc/DataStructureDigram.png"/>
+<img src="/doc/DataStructureDiagram.png"/>
